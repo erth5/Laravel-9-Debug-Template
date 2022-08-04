@@ -27,11 +27,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (App::environment() === 'local') {
+        /** 
+         * This action will block dusk tests, because
+         * Dusk environement has own environement settings
+         *  */
+        // if (App::environment() === 'local') {
 
-            (new ConfigValidator())
-                ->run();
-        }
+        //     (new ConfigValidator())
+        //         ->run();
+        // }
 
         // Carbon Time Language
         $lang = (Config::get('app.locale'));
