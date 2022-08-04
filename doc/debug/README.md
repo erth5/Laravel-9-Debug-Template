@@ -74,3 +74,7 @@ DE
 
 - Localisation
 - Faker
+
+### TODO
+
+/stackoverflow.com/questions/33512184/get-laravel-models-with-all-attributes

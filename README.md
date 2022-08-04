@@ -1,2 +1,3 @@
-# Laravel-Debug-Template
-Contains a Developer Menu with debug functions, example image upload, links to third party helper and tests which validate basic functionality. 
+# Laravel-Debug-Template Documentation
+
+[Debug Template.md](doc/debug/Readme.md)
