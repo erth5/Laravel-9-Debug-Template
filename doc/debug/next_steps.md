@@ -1,9 +1,9 @@
-# Routes
+# Next Steps
 
-## Free
+## Automate Fillable
+
+<https://newbedev.com/laravel-dynamic-fillable-in-models>
 
 ## Jetstram
-
-->Livewire
 
 <https://geisi.dev/blog/combining-laravel-jetstream-with-spatie-permissions/>

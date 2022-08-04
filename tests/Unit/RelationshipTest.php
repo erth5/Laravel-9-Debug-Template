@@ -5,12 +5,9 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Example\Lang;
-// use PHPUnit\Framework\TestCase;
 use App\Models\Example\Image;
 use App\Models\Example\Person;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+// use PHPUnit\Framework\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class RelationshipTest extends TestCase
@@ -54,8 +51,22 @@ class RelationshipTest extends TestCase
         $image = Image::factory(Image::class)->create(['person_id' => $person->id]);
         $image = Image::factory(Image::class)->create(['person_id' => $person->id]);
 
+        $this->assertTrue($person->image->contains($image));
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $person->image);
     }
+    
+        /**
+         * Test Person has several Image
+         *
+         * @return void
+         */
+        public function test_image_to_person()
+        {
+            $person = Person::factory(Person::class)->create();
+            $image = Image::factory(Image::class)->create(['person_id' => $person]);
+    
+            $this->assertInstanceOf('Illuminate\Database\Eloquent\Model', $image->person);
+        }
 
     /**
      * Test Image is Instance of user
