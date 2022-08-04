@@ -1,0 +1,3 @@
+# Erstellt mithilfe der config.txt und Anhand der names.txt korrekte Models und dessen Dateien
+
+get config file -> create by 

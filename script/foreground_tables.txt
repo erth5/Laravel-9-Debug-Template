@@ -1,0 +1,4 @@
+users
+debugs
+people
+images

@@ -1,0 +1,17 @@
+# Konfiguriert die Syntax, auf welcher die Dateien mit richtiger Syntax erstellt werden
+
+
+Meeting
++rules
+
+Creator
+-migration
+
+Situation
+
+
+creator->meeting
+meeting<-creator
+
+situation-many>creator
+creator<many-situation
