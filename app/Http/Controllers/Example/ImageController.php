@@ -114,16 +114,18 @@ class ImageController extends Controller
      * Update the specified resource in storage.
      * set only new name to image
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Image  $image
+     * @param  \Illuminate\Http\Request  $request beinhaltet noch kein neues Image
+     * @param  \App\Models\Image  $image altes Image
      * @return \Illuminate\Http\Response
+     * // getClientOriginalExtension()
      */
     public function update(Request $request, Image $image)
     {
+        dd($image, $request->file('image'));
         $image = Image::find($request)->get();
         $image->name = time() . $request->file('image')->getClientOriginalName();
         $request->file('image')->move('images', $image->name, 'public');
-        return view('image', compact($request, $image));
+        return redirect()->route('image', compact($request, $image));
     }
 
     /**
@@ -174,8 +176,8 @@ class ImageController extends Controller
      */
     public function edit(Image $image)
     {
-        $image = Image::find($image);
-        return view('image.edit', compact('image'));
+        $image = Image::find($image); // TODO remove
+        return redirect()->route('image.edit');
     }
 
     /** 

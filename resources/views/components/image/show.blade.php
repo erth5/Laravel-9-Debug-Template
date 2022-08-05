@@ -22,11 +22,14 @@
         <button type="submit" value="submit">remove</button>
     </form>
     <form action="/image/{{ $image->id }}/update" enctype="multipart/form-data">
-        @csrf
-        <input type="file" name="image" @error('image') is-invalid @enderror>
-        @error('image')
-            <span style="color:red;">{{ $message }}</span>
-        @enderror
-        <button type="submit" value="image">update</button>
-    </form>
+        {{-- <form action="{{ route('update image'), $image }}" method="POST" enctype="multipart/form-data"
+            style="display: inline-block"> --}}
+            @csrf
+            @method('PUT')
+            <input type="file" name="image" @error('image') is-invalid @enderror>
+            @error('image')
+                <span style="color:red;">{{ $message }}</span>
+            @enderror
+            <button type="submit" value="image">update</button>
+        </form>
 @endif
