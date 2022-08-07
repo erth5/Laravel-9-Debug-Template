@@ -21,7 +21,7 @@
     @endif
 </div>
 
-{{-- use with "withErrors" --}}
+{{-- use with "withErrors", used lang->validation messages --}}
 @if ($errors->any())
     {{ $errors->first() }}
 @endif
