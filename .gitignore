@@ -15,9 +15,27 @@ public/hot
 public_html/storage
 public_html/hot
 
+# environement
 storage/*.key
-.env
 Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
+/node_modules
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+# IDE
+/.idea
+/.vscode
+
+# own, Telescope
+nocode.txt
+public/vendor/
+*.bkp
