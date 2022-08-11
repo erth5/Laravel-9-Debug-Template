@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Example\Image;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Modules\ImageValidatorModule;
+use App\Http\Requests\Image\StoreImageRequest;
 use App\Services\Global\UtilsService;
 use Illuminate\Support\Facades\Storage;
 
@@ -51,24 +52,24 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreImageRequest $request)
     {
-        /* Variante 1 - Automatisches Validieren durch spezifiziertenRequest ImageRequest TODO nicht implementiert */
-        /* Variante 2 - Aufruf der Rule TODO nicht getestet */
-        /* Varinate 2 - Aufruf des Modules TODO */
-        /* Variante 4 - Aufruf mit Service TODO */
+        /* Validation
+         +Recommendet RequestFile 
+         app/Rules to add own validator rules
+         non static in module
+         static in Service (this case service use other Request Facade)
+         +or in controller*/
 
+        /* has own return back -> no proof required */
         $validator = new ImageValidatorModule($request);
         $validator->proofImageExist();
-        if ($validator != true) {
-            dd('Image exist Validation Fails');
-            return back()->with('statusError', __('image.existError'));
-        }
 
-        $validator->validateImage();
-        if ($validator != true) {
-            dd('Image has correct form Validation Fails');
-            return back()->with('statusError', __('image.validateError'));
+        $request->validate([
+            'image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        ]);
+        if ($request != true) {
+            return redirect()->route('images')->with('statusError', __('image.validateError'));
         }
 
         /** storeAs: $path, $name, $options = []     */

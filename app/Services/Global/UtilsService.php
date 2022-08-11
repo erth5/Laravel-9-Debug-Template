@@ -13,7 +13,7 @@ class UtilsService
 {
 
     /** Vorteile:
-     * Methoden und Varoablen Global
+     * Methoden und Variablen Global
      * Variablen können einmal declariert und für immer genutzt werden
      * Wenn alle Methoden die gleichen Variable brauchen, kann sie in construct gesetzt werden
      */

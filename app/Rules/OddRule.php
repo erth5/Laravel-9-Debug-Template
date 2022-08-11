@@ -13,7 +13,6 @@ class OddRule implements Rule
      */
     public function __construct()
     {
-        //
     }
 
     /**

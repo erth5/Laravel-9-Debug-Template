@@ -14,7 +14,8 @@ class RuleTest extends TestCase
      */
     public function test_example()
     {
-        // $this->2->validate(2, ['even' =>new OddRule]);
-        $this->assertTrue(true);
+        $validation = new OddRule();
+        $test = $validation->passes('testnumber', 2);
+        $this->assertTrue($test);
     }
 }
