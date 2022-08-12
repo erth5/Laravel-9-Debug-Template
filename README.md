@@ -1,4 +1,4 @@
-# Projectname
+# Your Projectname
 
 ## Laravel-Debug-Template Documentation
 
