@@ -200,7 +200,7 @@ class ImageController extends Controller
     //  */
     public function image(Request $request)
     {
-        // TODO Erkenne post oder get: Wenn get:
+        // TODO Erkenne post oder get: Wenn get: und dann lösch die Funktion
         return view('image.all');
 
         // Wenn post:
