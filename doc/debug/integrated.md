@@ -30,29 +30,13 @@
 
 <https://publisher.laravel-lang.com>
 
-<https://www.tutsmake.com/laravel-9-create-multi-language-website-example-tutorial/>
-
-### choose one
-
 <https://github.com/spatie/laravel-translatable>
+
+## (not installed because above are integrated)
 
 <https://laraveli18n.kodilab.com/docs/installation/>
 
-## outcludet
-
-<https://github.com/CrestApps/laravel-code-generator>
-
-<https://editor.swagger.io>
-
-<https://support.smartbear.com/swaggerhub/docs/tutorials/openapi-3-tutorial.html>
-
-<https://laravel-news.com/bash-aliases>
-
-permissions contained by voyager, spatie permissions, breeez, jetbstream
-
-<https://laraveli18n.kodilab.com/docs/model-translations/> (other integrated)
-
-<https://github.com/staudenmeir/eloquent-has-many-deep>
+<https://laraveli18n.kodilab.com/docs/model-translations/>
 
 ## filetyp
 
@@ -63,3 +47,15 @@ permissions contained by voyager, spatie permissions, breeez, jetbstream
 ## search
 
 <https://spatie.be/docs/laravel-site-search/v1/introduction>
+
+## this dependencies are not installed
+
+<https://github.com/CrestApps/laravel-code-generator>
+
+<https://editor.swagger.io>
+
+<https://support.smartbear.com/swaggerhub/docs/tutorials/openapi-3-tutorial.html>
+
+<https://laravel-news.com/bash-aliases>
+
+<https://github.com/staudenmeir/eloquent-has-many-deep>

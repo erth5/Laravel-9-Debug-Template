@@ -1,8 +1,6 @@
 # Environment
 
-```terminal
-php artisan vendor:publish
-```
+
 
 ## table: session
 
@@ -22,15 +20,7 @@ composer.lock und vendor muss vor der Installation gelöscht werden, da Minor Up
 
 Nohac/laravel-graphiql
 
-## Voyager (7.2022 - ausgelegt auf Laravel Version 8)
 
-- Model wird im app/ statt im app/Models gesucht
-- Migrations werden nicht mit verändert
-
-- Installation ohne Dummy Data schlägt fehl
-- Erstellt storage-public LINK
-- Manuelle Route
-- Abhängigkeiten werden nicht automatisch hinzugefügt
 
 ### Installation
 
@@ -47,17 +37,3 @@ Route::group(['prefix' => 'admin'], function () {
 use TCG\Voyager\Facades\Voyager;
 ```
 
-## Verwendet, aber installiert eigenständig
-
-### permission
-
-composer require spatie/laravel-permission
-
-'providers' => [
-    // ...
-    Spatie\Permission\PermissionServiceProvider::class,
-];
-
-### optional
-
-APP_URL=<http://127.0.0.1:8000>
