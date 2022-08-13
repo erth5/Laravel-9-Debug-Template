@@ -15,11 +15,14 @@ contact me, if one of your software-stack tools not working with this template. 
 Jetstream should be configured with the permission. See this tutorial:
 <https://geisi.dev/blog/combining-laravel-jetstream-with-spatie-permissions/>
 
+email:
+wi2z69k2w@relay.firefox.com
+
 ## using
 
 run
 
-```
+```artisan
 php artisan storage:link
 ```
 

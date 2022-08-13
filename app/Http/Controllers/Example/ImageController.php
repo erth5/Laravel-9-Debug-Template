@@ -10,11 +10,6 @@ use App\Http\Requests\Image\StoreImageRequest;
 use App\Services\Global\UtilsService;
 use Illuminate\Support\Facades\Storage;
 
-/**
- * variant1: ressource, yield, storage, withName
- * variant2: components, storage
- */
-
 class ImageController extends Controller
 {
 
@@ -78,14 +73,16 @@ class ImageController extends Controller
         // $path = $request->file('image')->storeAs('images', $name, 'public');
         /* Pfad ohne Namen */
         $path = 'images/';
-        $request->file('image')->storeAs('images', $name, 'public');
-
-        $metadata = Image::create();
-        $metadata->name = $name;
-        $metadata->path = $path;
-        $metadata->saveOrFail();
-        $images = Image::all();
-        return redirect('/image')->with('statusSuccess', __('image.uploadSuccess'))->with(compact('images'), 'imageName', $name);
+        if ($request->hasFile('image')) {
+            $request->file('image')->storeAs('images', $name, 'public');
+            $metadata = Image::create();
+            $metadata->name = $name;
+            $metadata->path = $path;
+            $metadata->saveOrFail();
+            $images = Image::all();
+            return redirect()->route('image')->with('statusSuccess', __('image.uploadSuccess'))->with(compact('images'), 'imageName', $name);
+        }
+        return redirect()->route('image')->withErrors('Request has no image');
     }
 
     /**
@@ -139,7 +136,7 @@ class ImageController extends Controller
     {
         /** Soft-delete */
         $image->delete();
-        return redirect()->back()->with('status', 'Image Has been removed');
+        return redirect()->route('destroy image')->with('status', 'Image Has been removed');
     }
     public function clear()
     {
@@ -166,7 +163,7 @@ class ImageController extends Controller
         $image = Image::withTrashed()->findOrFail($image);
         $image->remove_time = null;
         $image->saveOrFail();
-        return redirect()->back()->with('status', 'Image Has been restored');
+        return redirect()->route('restore image')->with('status', 'Image Has been restored');
     }
 
     /**

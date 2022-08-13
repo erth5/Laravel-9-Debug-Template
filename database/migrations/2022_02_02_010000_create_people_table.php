@@ -30,13 +30,6 @@ return new class extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            // $table->unsignedInteger('lang_id')->nullable();
-            // $table->foreign('lang_id')
-            //     ->references('id')
-            //     ->on('langs')
-            //     ->onDelete('cascade')
-            //     ->onUpdate('cascade');
-
             $table->string('surname')->nullable();
             $table->string('last_name')->nullable();
             $table->string('username')->nullable();

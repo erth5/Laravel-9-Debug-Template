@@ -74,8 +74,6 @@ class PersonController extends Controller
                     Log::warning('name of user was adjusted to person, old data: ', [$person->user_id->name]);
             $person->user_id->name = ($person->surname . $person->last_name);
         }
-        $people = Person::all();
-        return redirect()->back(compact('people'));;
     }
 
     public function getValuesDirect()
@@ -99,7 +97,8 @@ class PersonController extends Controller
         return $view;
     }
 
-    public function role(){
+    public function role()
+    {
         $users = User::orderBy('name')->with('roles')->get();
         return view('debug.role', compact('users'));
     }

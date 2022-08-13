@@ -58,7 +58,7 @@ Route::controller(PersonController::class)->group(function () {
 });
 
 Route::controller(ImageController::class)->group(function () {
-    Route::get('/image', 'index')->name('images');
+    Route::get('/image', 'index')->name('image');
     Route::post('image/store', 'store')->name('store image');
     Route::get('/image/create', 'create')->name('create image');
     Route::get('/image/{image}/show')->name('show image');
