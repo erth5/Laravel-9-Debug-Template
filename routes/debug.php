@@ -92,6 +92,7 @@ Route::get('/person/adjust', CallAdjust::class)->name('adjust');
 //     return 'Hello World';
 // });
 
+/* Ressource Routes */
 // Route::controller(ItemController::class)->group(function () {
 //     Route::get('items', 'index')->name('items.index');
 //     Route::post('items', 'store')->name('items.store');

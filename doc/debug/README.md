@@ -26,23 +26,21 @@ run
 php artisan storage:link
 ```
 
-write your env and app-key
+copy env.example to .env, generate your app-key
 
 ## Documentation
 
-Overview to Relationships: [draw.io File](/doc/debug/Relationship_Modell.drawio)
+Overview about Relationships: [draw.io File](/doc/debug/Relationship_Modell.drawio)
 
-This Project use many default Packages [Packages](/doc/debug/integrated.md)
-
-[This](/doc/debug/environment.md) bigger Projects are not integrated
+This Project use [following Packages](/doc/debug/integrated.md)
 
 ## some stuff
 
-How to clear your [cache](/doc/debug/cache.md)
+[This bigger Projects](/doc/debug/environment.md)  are not integrated
 
-[Some Artisan commands](/doc/debug/artisans.md)
+How to clear your [cache](/doc/debug/cache.md) and [run tests](/doc/debug/dusk%2C%20test.md)
 
-[Descriptions and Snippets](/doc/debug/desc.md)
+Some [Artisan commands](/doc/debug/artisans.md)
 
 ---
 
