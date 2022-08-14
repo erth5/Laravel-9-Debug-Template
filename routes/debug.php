@@ -2,7 +2,7 @@
 
 use App\Actions\CallAdjust;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Debug\DebugController;
+use App\Http\Controllers\DebugController;
 use App\Http\Controllers\Example\LangController;
 use App\Http\Controllers\Example\UserController;
 use App\Http\Controllers\Example\ImageController;

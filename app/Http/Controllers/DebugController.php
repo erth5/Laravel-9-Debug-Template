@@ -1,11 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Debug;
+namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Services\DebugService;
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Config;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
