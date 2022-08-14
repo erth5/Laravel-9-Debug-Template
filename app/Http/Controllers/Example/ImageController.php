@@ -166,18 +166,6 @@ class ImageController extends Controller
         return redirect()->route('restore image')->with('status', 'Image Has been restored');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Image  $image
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Image $image)
-    {
-        $image = Image::find($image); // TODO remove
-        return redirect()->route('image.edit');
-    }
-
     /** 
      * rename a image to new name and path
      */
@@ -190,32 +178,27 @@ class ImageController extends Controller
         return view('image.show')->with('status', 'Image Has been renamed');
     }
 
-    // /** variant 2
-    //  * store function
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @return \Illuminate\Http\Response
-    //  */
+    /** alternative
+     * store function
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function image(Request $request)
     {
-        // TODO Erkenne post oder get: Wenn get: und dann lösch die Funktion
-        return view('image.all');
+        $validation = new ImageValidatorModule($request);
+        $validation->imageValidator();
+        $name = $request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->store('image');
 
-        // Wenn post:
+        $dbItem = new Image();
+        $dbItem->name = $name;
+        // path descripes the name in Path "storage/app/images
+        $dbItem->path = $path;
+        $dbItem->saveOrFail();
 
-        // $validation = new ImageValidator($request);
-        // $validation->imageValidator();
-        // $name = $request->file('image')->getClientOriginalName();
-        // $path = $request->file('image')->store('image');
-
-        // $dbItem = new Image();
-        // $dbItem->name = $name;
-        // // path descripes the name in Path "storage/app/images
-        // $dbItem->path = $path;
-        // $dbItem->saveOrFail();
-
-        // $images = Image::all();
-        // // dd($request, $validation, $dbItem, $name, $path);
-        // return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
+        $images = Image::all();
+        // dd($request, $validation, $dbItem, $name, $path);
+        return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
     }
 
 

@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Example\Person;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Config;
-use App\Http\Controllers\Modules\UtilsModul;
 
 class PersonController extends Controller
 {
@@ -50,15 +48,7 @@ class PersonController extends Controller
      */
     public function store(Person $person, Request $request)
     {
-        $person = Person::findOrFail($person);
-        // TODO kann ncht gehen
-        $person = new UtilsModul;
-        $TableColumnNames = Config::get('database.tables.people');
-        $checkboxTableColumnNames = [null];
-        dd($TableColumnNames);
-        $person->fillObjectFromRequest($person, $TableColumnNames, $checkboxTableColumnNames, $request);
-        $person->saveOrFail();
-        dd($person);
+        //
     }
 
     /**
@@ -106,7 +96,7 @@ class PersonController extends Controller
 
     public function test($id = 11)
     {
-        // works
+        /** works */
         // $person = Person::findOrFail($id);
         // if ($person->user_id == null)
         //     echo 'ist null';
@@ -124,20 +114,18 @@ class PersonController extends Controller
         //     echo 'existiert nicht';
         // dd('Erfassung vollständig');
 
-        // works
+        /** works */
         // $person = Person::find($id);
         // $relatedImages = $person->countRelatedImages($id);
         // if ($relatedImages == 2)
         //     $relatedImages = $person->getRelatedImages($id);
         // dd($relatedImages);
 
-        /** Use */
-        $test = 'variablen text';
-        $withText = 'with text';
         /** not works */
         // return View::make('/debug.test', compact('test'))
         // ->with('statusSuccess', 'Anzeige erfolgreich')
         // ->with('example', $withData);
+
         /** works */
         // return view('/debug.test')->with(compact('test'))->with('example', $withText);
         // return View::make('/debug.test')->with(compact('test'))->with('example', $withText);
