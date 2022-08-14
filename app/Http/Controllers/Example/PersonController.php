@@ -69,10 +69,11 @@ class PersonController extends Controller
     {
         $people = Person::all();
         foreach ($people as $person) {
-            if ($person->user_id != null)
-                if ($person->user_id->name != ($person->surname . $person->last_name))
-                    Log::warning('name of user was adjusted to person, old data: ', [$person->user_id->name]);
-            $person->user_id->name = ($person->surname . $person->last_name);
+            if ($person->user != null)
+                if ($person->user->name != ($person->surname . " " . $person->last_name))
+                    Log::warning('name of user was adjusted to person, old data: ', [$person->user->name]);
+            $person->user->name = ($person->surname . " " . $person->last_name);
+            $person->user->save();
         }
     }
 

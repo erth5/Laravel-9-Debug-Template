@@ -6,13 +6,16 @@ use Tests\TestCase;
 use App\Models\User;
 use App\Models\Example\Person;
 use Database\Seeders\PersonSeeder;
+use App\Http\Controllers\Example\PersonController;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
-use Illuminate\Support\Facades\DB;
+
+use function PHPUnit\Framework\assertEquals;
 
 class DatabaseTest extends TestCase
 {
@@ -91,11 +94,18 @@ class DatabaseTest extends TestCase
         $this->assertModelMissing($user);
     }
 
-    /** Teste das ín lang die person_id nicht der user_id iwiderspricht
-     * Doppelte Zuordnung ist möglich
-     * Herausgenommen->Zuordnung geschieht über people
+    /**
+     * set users name to surname and last name from person .
+     *
+     * @return void
      */
-
-
-     /**  */
+    public function test_can_adjust_person()
+    {
+        $adjusting = (new PersonController)->adjust();
+        assertEquals(
+            'Lord Kennedy',
+            Person::where('username', 'thespasst')
+                ->first()->user->name
+        );
+    }
 }

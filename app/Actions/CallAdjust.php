@@ -11,7 +11,6 @@ class CallAdjust
 
     public function handle()
     {
-        $adjust = new PersonController;
-        $adjust->adjust();
+        $adjusting = (new PersonController)->adjust();
     }
 }

@@ -21,11 +21,11 @@
 
     'telescope' => 'Telescope',
     'swagger' => 'Swagger',
+    'swagger_json' => 'Swagger-JSON-Pfad',
     'voyager' => 'Voyager',
     'rel_view_1' => 'Nutzer->Person',
     'rel_view_2' => 'Person->Nutzer',
-    'session_data' => 'Aktuelle Session',
-    'session_table' => 'Session Daten',
+    'index' => 'Indexierung',
 
     'db_test_msg' => 'Erfolgreich mit der Datanbank verbunden =>',
     'config' => 'KonfigurationsValidierung',
@@ -33,9 +33,16 @@
     'status' => 'Statusmeldung',
     'error' => 'Fehlermeldung',
     'name' => 'Name',
-    'debug_test' => 'Debug test Funktionen',
-    'person_test' => 'Person test Funktionen',
-    'image' => 'Image Verwaltung',
+
+    'test_debug' => 'Debug-Testfunktion',
+    'test_action' => 'Action-Testfunktion',
+    'test_user' => 'Nutzer-Testfunktion',
+    'test_person' => 'Person-Testfunktion',
+
+    'session_data' => 'Aktuelle Session',
+    'session_table' => 'Session Daten',
+
+    'image' => 'Image-Verwaltung',
     'role' => 'Rollen Berechtigungen',
     'user' => 'Nutzer Berechtigungen',
 ];

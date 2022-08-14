@@ -28,12 +28,24 @@ class PersonSeeder extends Seeder
                 'password' => bcrypt('password'),
                 'email_verified_at' => now(),
                 'remember_token' => token_name(10)
-            ])->first(),
+            ]),
             'surname' => 'Max',
             'last_name' => 'Mustermann',
             'username' => 'laraveller',
         ]);
 
+        $unadjustedPerson = Person::factory()->create([
+            'user_id' => User::factory()->create([
+                'name' => 'Viola Rett',
+                'email' => 'xzm07930@xcoxc.com',
+                'password' => bcrypt('password'),
+                'email_verified_at' => now(),
+                'remember_token' => token_name(10)
+            ]),
+            'surname' => 'Lord',
+            'last_name' => 'Kennedy',
+            'username' => 'thespasst',
+        ]);
 
         // $lang = Lang::where('abbreviation', 'de')->first();
         // $defautPerson->lang()->attach($lang);

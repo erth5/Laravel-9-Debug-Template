@@ -21,11 +21,11 @@
 
     'telescope' => 'telescope',
     'swagger' => 'swagger',
+    'swagger_json' => 'Swagger-JSON-path',
     'voyager' => 'voyager',
     'rel_view_1' => 'user->Person',
     'rel_view_2' => 'person->User',
-    'session_data' => 'current session',
-    'session_table' => 'session data',
+    'index' => 'indexiation',
 
     'db_test_msg' => 'Successfully connected to the database => ',
     'config' => 'configValidation',
@@ -33,8 +33,16 @@
     'status' => 'State Message',
     'error' => 'Error Message',
     'name' => 'name',
-    'debug_test' => 'Debug test functions',
-    'person_test' => 'Person test functions',
-    'image' => 'Image Management',
-    'role' => 'roles and permissions',
+
+    'test_debug' => 'Debug-test-function',
+    'test_action' => 'Action-test-function',
+    'test_user' => 'User-test-function',
+    'test_person' => 'Person-test-function',
+
+    'session_data' => 'current session',
+    'session_table' => 'session data',
+
+    'image' => 'Image-Management',
+    'role' => 'roles-permissions',
+    'user' => 'user-permissions'
 ];

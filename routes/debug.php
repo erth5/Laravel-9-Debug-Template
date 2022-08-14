@@ -1,5 +1,6 @@
 <?php
 
+use App\Actions\CallAdjust;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Debug\DebugController;
 use App\Http\Controllers\Example\LangController;
@@ -76,6 +77,8 @@ Route::controller(LangController::class)->group(function () {
     Route::get('/lang/lang_debug', 'debug');
     Route::get('/lang/change', 'change')->name('changeLang');
 });
+
+Route::get('/person/adjust', CallAdjust::class)->name('adjust');
 
 // Route::get('{alias}', 'HomeController@someAction')
 //     ->where('alias', 'alias1|alias1.html|alias1.php|alias4');

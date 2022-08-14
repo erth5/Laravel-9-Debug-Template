@@ -1,6 +1,3 @@
-<p>{{ __('image.var1') }}</p>
-<p>{{ __('image.var2') }}</p>
-
 <a href="/image">{{ __('image.index') }}</a>
 <blockquote><a href="/image/store"> {{ __('image.store') }} </a></blockquote>
 <a href="/image/create">{{ __('image.create') }}</a>
