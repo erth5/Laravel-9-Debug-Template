@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Services\DebugService;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Config;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
@@ -47,8 +49,15 @@ class DebugController extends Controller
                     echo \DB::connection()->getDatabaseName();
                     return view('debug.db');
                 } catch (\Exception $e) {
-                    dd('$e');
+                    echo ('$e');
                 }
+                try {
+                    \DB::connection_status();
+                    return \DB::connection()->getDatabaseName();
+                } catch (Exception $e) {
+                    echo $e;
+                }
+                dd('fin');
             case 'debug':
                 return view('debug.debug');
             case 'php':
