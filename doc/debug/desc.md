@@ -1,5 +1,27 @@
 # description
 
+## Ressource
+
+    public function index(){}
+    public function store(){}
+    public function create(){}
+    public function show(){}
+    public function update(){}
+    public function destroy(){}
+    public function edit(){}
+
+/*Ressource Routes*/
+Route::controller(ItemController::class)->group(function () {
+    Route::get('items', 'index')->name('items.index');
+    Route::post('items', 'store')->name('items.store');
+    Route::get('items/create', 'create')->name('items.create');
+    Route::get('items/{item}', 'show')->name('items.show');
+    Route::put('items/{item}', 'update')->name('items.update');
+    Route::delete('items/{item}', 'destroy')->name('items.destroy');
+    Route::get('items/{item}/edit', 'edit')->name('items.edit');
+});
+Route::resource('items', ItemController::class);
+
 ## auth
 
 ```php
