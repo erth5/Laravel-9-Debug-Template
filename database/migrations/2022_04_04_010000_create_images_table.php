@@ -16,7 +16,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('name')->default('error');
             $table->string('path')->default('error');
 
@@ -27,13 +27,12 @@ return new class extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            // TODO person verknüpfen
-            $table->integer('person_id')->unsigned()->nullable();
-            // $table->foreign('person_id')
-            //     ->references('id')
-            //     ->on('people')
-            //     ->onDelete('cascade')
-            //     ->onUpdate('cascade');
+            $table->bigInteger('person_id')->unsigned()->nullable();
+            $table->foreign('person_id')
+                ->references('id')
+                ->on('people')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->timestamp('upload_time', 0)->nullable();
             $table->timestamp('update_time', 0)->nullable();

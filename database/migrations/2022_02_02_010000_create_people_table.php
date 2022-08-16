@@ -19,7 +19,7 @@ return new class extends Migration
              * $table->foreignId('id')->constrained('users');
              * 
              **/
-            $table->id()->unique();
+            $table->bigIncrements('id');
 
             $table->integer('user_id')
                 ->unsigned()
