@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -17,8 +17,8 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('Fehler: Name ist null');
-            $table->string('path')->default('Fehler: Pfad ist null');
+            $table->string('name')->default('error');
+            $table->string('path')->default('error');
 
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')
@@ -26,6 +26,8 @@ return new class extends Migration
                 ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+
+            // TODO person verknüpfen
             $table->integer('person_id')->unsigned()->nullable();
             // $table->foreign('person_id')
             //     ->references('id')
