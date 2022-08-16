@@ -27,7 +27,7 @@
     'rel_view_2' => 'person->User',
     'index' => 'indexiation',
 
-    'db_test_msg' => 'Successfully connected to the database => ',
+    'db_test_msg' => 'Successfully connected to the main database => ',
     'config' => 'configValidation',
 
     'status' => 'State Message',

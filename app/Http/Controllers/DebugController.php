@@ -44,20 +44,33 @@ class DebugController extends Controller
                 DebugController::test();
                 break;
             case 'db':
+                $connections[] = null;
+
                 try {
                     \DB::connection()->getPDO();
-                    echo \DB::connection()->getDatabaseName();
-                    return view('debug.db');
+                    $connections[] = 'main DB: ' . \DB::connection()->getDatabaseName();
                 } catch (\Exception $e) {
-                    echo ('$e');
+                    $connections[] = $e;
                 }
                 try {
-                    \DB::connection_status();
-                    return \DB::connection()->getDatabaseName();
-                } catch (Exception $e) {
-                    echo $e;
+                    \DB::connection('sqlite')->getPDO();
+                    $connections[] = 'sqlite: ' . \DB::connection()->getDatabaseName();
+                } catch (\Exception $e) {
+                    $connections[] = $e;
                 }
-                dd('fin');
+                try {
+                    \DB::connection('pgsql')->getPDO();
+                    $connections[] = 'pgsql: ' . \DB::connection()->getDatabaseName();
+                } catch (\Exception $e) {
+                    $connections[] = $e;
+                }
+                try {
+                    \DB::connection('sqlsrv')->getPDO();
+                    $connections[] = 'sqlsrv: ' . \DB::connection()->getDatabaseName();
+                } catch (\Exception $e) {
+                    $connections[] = $e;
+                }
+                return view('debug.db', compact('connections'));
             case 'debug':
                 return view('debug.debug');
             case 'php':

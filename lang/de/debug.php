@@ -27,7 +27,7 @@
     'rel_view_2' => 'Person->Nutzer',
     'index' => 'Indexierung',
 
-    'db_test_msg' => 'Erfolgreich mit der Datanbank verbunden =>',
+    'db_test_msg' => 'Erfolgreich mit der Haupt-Datanbank verbunden =>',
     'config' => 'KonfigurationsValidierung',
 
     'status' => 'Statusmeldung',
