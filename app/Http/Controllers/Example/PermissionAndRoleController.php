@@ -6,8 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\Permission\Models\Permission;
 
 /** Verarbeiten von Berechtigungen
  * @param userID $request->id NutzerID des gewählten Nutzers

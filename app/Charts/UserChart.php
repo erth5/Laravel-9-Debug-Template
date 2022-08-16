@@ -5,8 +5,8 @@ declare(strict_types = 1);
 namespace App\Charts;
 
 use Chartisan\PHP\Chartisan;
-use ConsoleTVs\Charts\BaseChart;
 use Illuminate\Http\Request;
+use ConsoleTVs\Charts\BaseChart;
 
 class UserChart extends BaseChart
 {

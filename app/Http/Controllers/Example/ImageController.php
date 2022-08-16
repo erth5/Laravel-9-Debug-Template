@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Example;
 use Illuminate\Http\Request;
 use App\Models\Example\Image;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Modules\ImageValidatorModule;
-use App\Http\Requests\Image\StoreImageRequest;
 use App\Services\Global\UtilsService;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\Image\StoreImageRequest;
+use App\Http\Controllers\Modules\ImageValidatorModule;
 
 class ImageController extends Controller
 {

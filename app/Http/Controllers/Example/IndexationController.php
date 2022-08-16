@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Example;
 
-use App\Http\Controllers\Controller;
-use App\Models\Example\Image;
-use App\Models\Example\Lang;
-use App\Models\Example\Person;
 use App\Models\User;
+use App\Models\Example\Lang;
+use App\Models\Example\Image;
+use App\Models\Example\Person;
+use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Schema;
 use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 
 $data[] = null;
 
