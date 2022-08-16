@@ -17,8 +17,9 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->default('error');
-            $table->string('path')->default('error');
+            $table->string('path')->nullable();
+            $table->string('name')->default('imageNameError');
+            $table->string('extension')->nullable();
 
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')

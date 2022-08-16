@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Example;
 
+use Exception;
 use Illuminate\Http\Request;
 use App\Models\Example\Image;
 use App\Http\Controllers\Controller;
@@ -68,19 +69,18 @@ class ImageController extends Controller
         }
 
         /** storeAs: $path, $name, $options = []     */
-        $name = time() . $request->file('image')->getClientOriginalName();
-        /* Pfad mit Namen und speichern*/
-        // $path = $request->file('image')->storeAs('images', $name, 'public');
-        /* Pfad ohne Namen */
-        $path = 'images/';
         if ($request->hasFile('image')) {
+            /* Pfad mit Namen und speichern*/
+            // $path = $request->file('image')->storeAs('images', $name, 'public');
+            /* Pfad ohne Namen */
+            $name = time() . $request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('images', $name, 'public');
             $metadata = Image::create();
             $metadata->name = $name;
-            $metadata->path = $path;
+            $metadata->path = 'images/';
+            $metadata->extension = $request->file('image')->getExtension();
             $metadata->saveOrFail();
-            $images = Image::all();
-            return redirect()->route('image')->with('statusSuccess', __('image.uploadSuccess'))->with(compact('images'), 'imageName', $name);
+            return redirect()->route('image')->with('statusSuccess', __('image.uploadSuccess'))->with('imageName', $name);
         }
         return redirect()->route('image')->withErrors('Request has no image');
     }
@@ -119,8 +119,8 @@ class ImageController extends Controller
      */
     public function update(Request $request, Image $image)
     {
-        dd($image, $request->file('image'));
-        $image = Image::find($request)->get();
+        // dd($image, $request->file('image'));
+        $image = Image::find($request)->get(); // TODO first statt get ...
         $image->name = time() . $request->file('image')->getClientOriginalName();
         $request->file('image')->move('images', $image->name, 'public');
         return redirect()->route('image', compact($request, $image));
@@ -138,6 +138,7 @@ class ImageController extends Controller
         $image->delete();
         return redirect()->route('destroy image')->with('status', 'Image Has been removed');
     }
+
     public function clear()
     {
         $images = Image::onlyTrashed()->get();
@@ -171,11 +172,15 @@ class ImageController extends Controller
      */
     public function rename(Request $request, Image $image)
     {
-        $image = Image::find($image);
-        dd($request);
-        // TODO rename path
-        $image->name = $request->name;
-        return view('image.show')->with('status', 'Image Has been renamed');
+        try {
+            Storage::move('public/' . $image->path . $image->name, 'public/' . $image->path . $request->rename);
+            // rename(public_path('storage/' . $image->path . $image->name), public_path('storage/' . $image->path . $request->rename));
+            $image->name = $request->rename;
+            $image->saveOrFail();
+        } catch (Exception $e) {
+            return redirect()->route('image')->with('status', 'Error,' . $image->name . ' not found');
+        }
+        return redirect()->route('image')->with('status', 'Image Has been renamed');
     }
 
     /** alternative
@@ -234,5 +239,4 @@ class ImageController extends Controller
         echo $requestData;
         return $req;
     }
-    /** Debug */
 }

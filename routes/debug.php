@@ -58,17 +58,20 @@ Route::controller(PersonController::class)->group(function () {
     Route::get('/person/role', 'role');
 });
 
-Route::controller(ImageController::class)->group(function () {
-    Route::get('/image', 'index')->name('image');
-    Route::post('image/store', 'store')->name('store image');
-    Route::get('/image/create', 'create')->name('create image');
-    Route::get('/image/{image}/show')->name('show image');
-    Route::get('/image/{image}/update', 'update')->name('update image');
-    Route::get('/image/{image}/destroy', 'destroy')->name('destroy image');
-    Route::get('/rename', 'rename')->name('edit image');
+// looking ressource routes
+// Route::resource('any', PersonController::class);
 
-    Route::post('/image/debug', 'debug')->name('debug image');
-    Route::get('/image/{image}/restore', 'restore')->name('restore image');
+Route::controller(ImageController::class)->group(function () {
+    Route::get('images', 'index')->name('image');
+    Route::post('images/store', 'store')->name('store image');
+    Route::get('images/create', 'create')->name('create image');
+    Route::get('images/{image}/show')->name('show image');
+    Route::put('images/{image}/update', 'update')->name('update image');
+    Route::delete('images/{image}/destroy', 'destroy')->name('destroy image');
+    Route::post('images/{image}/rename', 'rename')->name('rename image');
+
+    Route::post('/images/debug', 'debug')->name('debug image');
+    Route::get('/images/{image}/restore', 'restore')->name('restore image');
     Route::get('/images/clear', 'clear')->name('clear images');
 });
 

@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use App\Models\Example\Image;
 use App\Models\Example\Person;
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Queue\Failed\NullFailedJobProvider;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ImageSeeder extends Seeder
 {
@@ -20,8 +20,9 @@ class ImageSeeder extends Seeder
     {
         // Default Demo User
         Image::factory()->create([
-            'name' => 'Ressource_Image_Routes.png',
             'path' => '',
+            'name' => 'Ressource_Image_Routes.png',
+            'extension' => 'png',
             'person_id' => Person::where('username', 'laraveller')->first(),
             'user_id' => User::where('email', 'fdsdwp@protonmail.com')->first(),
             'upload_time' => now(),
