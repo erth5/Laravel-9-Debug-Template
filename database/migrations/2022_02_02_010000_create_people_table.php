@@ -19,6 +19,11 @@ return new class extends Migration
              * $table->foreignId('id')->constrained('users');
              * 
              **/
+
+            /** TODO
+             * Du könntest auch das schreiben, dann wird der Typ automatisch gesetzt:
+             * $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+             */
             $table->bigIncrements('id');
 
             $table->integer('user_id')
