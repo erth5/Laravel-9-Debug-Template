@@ -69,7 +69,9 @@ return [
     |
     */
 
-    'timezone' => env('APP_TIMEZONE','UTC') ? env('APP_TIMEZONE','UTC') : 'Europe/Berlin',
+    // TODO Funktion die die Timezone einstellt und nicht UTC abfragt
+    // 'timezone' => env('APP_TIMEZONE','UTC') ? env('APP_TIMEZONE','UTC') : 'Europe/Berlin',
+    'timezone' => 'Europe/Berlin',
 
     /*
     |--------------------------------------------------------------------------

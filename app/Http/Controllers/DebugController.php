@@ -96,6 +96,11 @@ class DebugController extends Controller
                 dd($files);
             case 'lang':
                 return view('debug.lang');
+            case 'timezone': 
+                // TODO {{ \Carbon\Carbon::now();}} und bündeln
+                $timezone = date_default_timezone_get();
+                echo "The current server timezone is: " . $timezone;
+                break;
             case 'path':
                 // current directory
                 echo (__DIR__);
