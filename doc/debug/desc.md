@@ -1,5 +1,9 @@
 # description
 
+## Relationship
+
+$user->load('projects');
+
 ## Ressource
 
     public function index(){}
