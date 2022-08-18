@@ -58,7 +58,7 @@ class RelationshipPracticalTest extends TestCase
         if (DB::table('people')->count() == 0)
             assertTrue(true);
         else {
-            $image = Image::where('name', 'Ressource_Image_Routes.png')->first();
+            $image = Image::where('name', 'Resource_Image_Routes.png')->first();
             assertIsObject($image->person);
         }
     }

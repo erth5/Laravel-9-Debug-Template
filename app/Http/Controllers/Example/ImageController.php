@@ -173,7 +173,7 @@ class ImageController extends Controller
     public function rename(Request $request, Image $image)
     {
         try {
-            Storage::move('public/' . $image->path . $image->name, 'public/' . $image->path . $request->rename);
+            Storage::move('public/' . $image->path . $image->name, 'public/' . $image->path . $request->rename . '.' . $image->extension);
             // rename(public_path('storage/' . $image->path . $image->name), public_path('storage/' . $image->path . $request->rename));
             $image->name = $request->rename;
             $image->saveOrFail();

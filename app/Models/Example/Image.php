@@ -19,6 +19,7 @@ class Image extends Model
     protected $fillable = [
         'name',
         'path',
+        'extension',
     ];
 
     protected $dates = ['deleted_at'];

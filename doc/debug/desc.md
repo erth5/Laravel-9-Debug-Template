@@ -3,12 +3,12 @@
 ## Ressource
 
     public function index(){}
-    public function store(){}
+    public function store(Request $request){}
     public function create(){}
     public function show(){}
-    public function update(){}
-    public function destroy(){}
-    public function edit(){}
+    public function update(Request $request){}
+    public function destroy(Request $request){}
+    public function edit(Request $request){}
 
 /*Ressource Routes*/
 Route::controller(ItemController::class)->group(function () {

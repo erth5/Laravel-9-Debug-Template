@@ -21,7 +21,7 @@ class ImageSeeder extends Seeder
         // Default Demo User
         Image::factory()->create([
             'path' => '',
-            'name' => 'Ressource_Image_Routes.png',
+            'name' => 'Resource_Image_Routes.png',
             'extension' => 'png',
             'person_id' => Person::where('username', 'laraveller')->first(),
             'user_id' => User::where('email', 'fdsdwp@protonmail.com')->first(),

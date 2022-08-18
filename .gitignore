@@ -39,3 +39,8 @@ yarn-error.log
 nocode.txt
 public/vendor/
 *.bkp
+# Jetstream publishing
+# resources/views/vendor
+
+# example image
+!storage/app/public/Resource_Image_routes

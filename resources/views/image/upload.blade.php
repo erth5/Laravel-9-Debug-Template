@@ -5,6 +5,7 @@
 
     @if ($message = Session::get('success'))
         <div>
+            {{-- TODO --}}
             <button type="button">×WOBINICH</button>
             <strong style="text-align: center">{{ $message }}</strong>
         </div>

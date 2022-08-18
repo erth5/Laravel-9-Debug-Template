@@ -25,7 +25,7 @@
 
     <form method="POST" action="{{ route('rename image', [$image]) }}" enctype="multipart/form-data">
         @csrf
-        <input type="text" name="rename">
+        <input type="text" name="rename"> .{{$image->extension}}
         <button type="submit">rename</button>
     </form>
 
