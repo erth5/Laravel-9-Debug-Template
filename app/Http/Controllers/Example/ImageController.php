@@ -85,7 +85,7 @@ class ImageController extends Controller
             session()->put('image', $metadata->name);
             return redirect()->route('image')
                 ->with('statusSuccess', __('image.uploadSuccess') . $metadata->name . 'with()lang()')
-                ->with('image', storage_path($metadata->path . $metadata->name)); //TODO anzeigen in session
+                ->with('image', storage_path($metadata->path . $metadata->name));
         }
         return redirect()->route('image')->withErrors('Request has no image');
     }

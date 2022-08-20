@@ -61,7 +61,7 @@ class Person extends Model
         $query->with('image', 'user', 'lang');
     }
 
-    /** Count number of Images a person has TODO scope
+    /** Count number of Images a person has
      * @return number Amount Anzahl Bilder
      */
     public function countRelatedImages($id)
