@@ -23,9 +23,11 @@
     'swagger' => 'Swagger',
     'swagger_json' => 'Swagger-JSON-Pfad',
     'voyager' => 'Voyager',
+    'index' => 'Indexierung',
+    'scope' => 'Geltungsbereich',
+
     'rel_view_1' => 'Nutzer->Person',
     'rel_view_2' => 'Person->Nutzer',
-    'index' => 'Indexierung',
 
     'db_test_msg' => 'Erfolgreich mit der Haupt-Datanbank verbunden =>',
     'config' => 'KonfigurationsValidierung',

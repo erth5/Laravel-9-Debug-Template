@@ -18,7 +18,7 @@ class IndexationController extends Controller
 
     public function index()
     {
-        foreach (Config('database.telescope') as $dbNames) {
+        foreach (Config('tables.telescope') as $dbNames) {
             $data[] = Schema::getColumnListing($dbNames);
         }
 

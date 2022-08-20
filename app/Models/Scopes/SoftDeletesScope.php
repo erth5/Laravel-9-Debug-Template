@@ -2,9 +2,9 @@
 
 namespace App\Models\Scopes;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
+use Illuminate\Database\Eloquent\Builder;
 
 class SoftDeletesScope implements Scope
 {
@@ -17,6 +17,6 @@ class SoftDeletesScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        // TODO get($model) and return(onlysoftdeletes)
+        // $builder->onlyTrashed();
     }
 }

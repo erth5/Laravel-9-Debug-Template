@@ -29,6 +29,7 @@
 <br>
 
 <a href="/index/test"> {{ __('debug.index') }} </a>
+<a href="/debug/scope">{{__('debug.scope')}}</a>
 <blockquote>
     <a href="/debug/test"> {{ __('debug.test_debug') }} </a>
     <a href="/person/adjust">{{ __('debug.test_action') }}</a>

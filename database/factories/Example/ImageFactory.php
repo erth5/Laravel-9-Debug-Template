@@ -17,11 +17,10 @@ class ImageFactory extends Factory
     public function definition()
     {
         return [
-            'path' => 'image',
-            'name' => 'name',
+            'path' => 'images/',
+            'name' => 'image',
             'extension' => null,
-            // $this->faker->image('https://source.unsplash.com/random'); TODO
-            // 'image' => 'https://source.unsplash.com/random',
+            // $this->faker->image('https://source.unsplash.com/random');
         ];
     }
 }

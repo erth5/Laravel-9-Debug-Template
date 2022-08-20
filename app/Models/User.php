@@ -5,14 +5,15 @@ namespace App\Models;
 use App\Models\Example\Image;
 use App\Models\Example\Person;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
+use App\Models\Scopes\SoftDeletesScope;
+use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -28,6 +29,14 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    /* Global Scope */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new SoftDeletesScope);
+    }
 
     /**
      * this data can't be accessed directly.
@@ -70,7 +79,8 @@ class User extends Authenticatable
     {
         return $this->hasPermissionTo($permissionName);
     }
-    public function proofUserCan($permissionName){
+    public function proofUserCan($permissionName)
+    {
 
         return $this->hasPermissionTo($permissionName);
     }

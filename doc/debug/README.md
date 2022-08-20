@@ -94,12 +94,3 @@ DE
 
 - Localisation
 - Faker
-
-### TODO (I delete that when I have time)
-
-/stackoverflow.com/questions/33512184/get-laravel-models-with-all-attributes
-
-- image v1: has-pics, seperated-yield, ressource
-- image v2: named-pics, merged-component, any
-
-TODO Resource IOmage Routes example png change to correct routes

@@ -22,10 +22,12 @@
     'telescope' => 'telescope',
     'swagger' => 'swagger',
     'swagger_json' => 'Swagger-JSON-path',
+    'index' => 'indexiation',
+    'scope' => 'scope',
+
     'voyager' => 'voyager',
     'rel_view_1' => 'user->Person',
     'rel_view_2' => 'person->User',
-    'index' => 'indexiation',
 
     'db_test_msg' => 'Successfully connected to the main database => ',
     'config' => 'configValidation',

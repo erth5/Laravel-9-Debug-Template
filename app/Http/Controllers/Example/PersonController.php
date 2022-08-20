@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Example;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Example\Image;
 use App\Models\Example\Person;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
@@ -115,11 +116,13 @@ class PersonController extends Controller
         // dd('Erfassung vollständig');
 
         /** works */
-        // $person = Person::find($id);
-        // $relatedImages = $person->countRelatedImages($id);
-        // if ($relatedImages == 2)
-        //     $relatedImages = $person->getRelatedImages($id);
-        // dd($relatedImages);
+        $person = Person::where('username', 'laraveller')->first();
+        $numberRelatedImages = $person->countRelatedImages($person->id);
+        if ($numberRelatedImages >= 2)
+            $relatedImages = $person->getRelatedImages($person->id);
+        else
+            dd($numberRelatedImages);
+        dd($relatedImages);
 
         /** not works */
         // return View::make('/debug.test', compact('test'))
@@ -131,8 +134,12 @@ class PersonController extends Controller
         // return View::make('/debug.test')->with(compact('test'))->with('example', $withText);
 
         /** works */
-        $test = Person::peopleOrganized();
-        dd($test);
+        // $test = Person::peopleOrganized();
+        // dd($test);
+
+        /** works */
+        // $test = Person::withRelationships()->get();
+        // dd($test);
     }
 }
 

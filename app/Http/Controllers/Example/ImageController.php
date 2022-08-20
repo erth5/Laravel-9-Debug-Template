@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Example;
 
 use Exception;
+use Mockery\Undefined;
 use Illuminate\Http\Request;
 use App\Models\Example\Image;
 use App\Http\Controllers\Controller;
@@ -78,9 +79,11 @@ class ImageController extends Controller
             $metadata = Image::create();
             $metadata->name = $name;
             $metadata->path = 'images/';
-            $metadata->extension = $request->file('image')->getExtension();
+            $metadata->extension = $request->file('image')->getClientOriginalExtension();
             $metadata->saveOrFail();
-            return redirect()->route('image')->with('statusSuccess', __('image.uploadSuccess'))->with('imageName', $name);
+            return redirect()->route('image')
+                ->with('statusSuccess', __('image.uploadSuccess'))
+                ->with('imageName', $name);
         }
         return redirect()->route('image')->withErrors('Request has no image');
     }
@@ -115,15 +118,24 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request  $request beinhaltet noch kein neues Image
      * @param  \App\Models\Image  $image altes Image
      * @return \Illuminate\Http\Response
-     * // getClientOriginalExtension()
      */
     public function update(Request $request, Image $image)
     {
-        // dd($image, $request->file('image'));
-        $image = Image::find($request)->get(); // TODO first statt get ...
-        $image->name = time() . $request->file('image')->getClientOriginalName();
-        $request->file('image')->move('images', $image->name, 'public');
-        return redirect()->route('image', compact($request, $image));
+        // do not change image data bevor use old path
+        try {
+            if (Storage::exists('public/' . $image->path . $image->name)) {
+                Storage::delete('public/' . $image->path . $image->name);
+            }
+            // store for not relevant names
+            $storePath = $request->file('image')->store('public/' . str_replace('/', '', $image->path));
+            $image->name = str_replace('public/' . $image->path, '', $storePath);
+            $image->extension = $request->file('image')->getClientOriginalExtension();
+        } catch (Exception $e) {
+            dd($e);
+        }
+        $image->extension = $request->file('image')->getClientOriginalExtension();
+        $image->saveOrFail();
+        return redirect()->route('image')->with('status', 'Image ' . $image->name . ' has been updated');
     }
 
     /**
@@ -136,7 +148,15 @@ class ImageController extends Controller
     {
         /** Soft-delete */
         $image->delete();
-        return redirect()->route('destroy image')->with('status', 'Image Has been removed');
+        return redirect()->route('image')->with('status', 'Image ' . $image->name . ' has been soft deleted');
+    }
+
+    public function restore($image)
+    {
+        $image = Image::withTrashed()->findOrFail($image);
+        $image->remove_time = null;
+        $image->saveOrFail();
+        return redirect()->route('image')->with('status', 'Image ' . $image->name . ' has been restored');
     }
 
     public function clear()
@@ -144,8 +164,8 @@ class ImageController extends Controller
         $images = Image::onlyTrashed()->get();
         /** Hard-delete */
         foreach ($images as $image) {
-            if (Storage::exists('public/' . $image->path)) {
-                Storage::delete('public/' . $image->path);
+            if (Storage::exists('public/' . $image->path . $image->name)) {
+                Storage::delete('public/' . $image->path . $image->name);
             }
             $image->forceDelete();
         }
@@ -154,33 +174,22 @@ class ImageController extends Controller
     }
 
     /** 
-     * Restore the specific resource, when it's soft-deleted
-     * 
-     * @param \App\Models\Example\Image
-     * @return \Illuminate\Http\Response
-     */
-    public function restore($image)
-    {
-        $image = Image::withTrashed()->findOrFail($image);
-        $image->remove_time = null;
-        $image->saveOrFail();
-        return redirect()->route('restore image')->with('status', 'Image Has been restored');
-    }
-
-    /** 
      * rename a image to new name and path
      */
     public function rename(Request $request, Image $image)
     {
+        $old_name = $image->name;
+        $relative_source_path = 'public/' . $image->path . $image->name;
+        $relative_target_path =  'public/' . $image->path . time() . $request->rename . '.' . $image->extension;
         try {
-            Storage::move('public/' . $image->path . $image->name, 'public/' . $image->path . $request->rename . '.' . $image->extension);
-            // rename(public_path('storage/' . $image->path . $image->name), public_path('storage/' . $image->path . $request->rename));
-            $image->name = $request->rename;
+            Storage::move($relative_source_path, $relative_target_path);
+            // rename(public_path('storage/' . $image->path . $image->name), public_path('storage/' . $image->path . $request->rename . '.' . $image->extension));
+            $image->name = time() . $request->rename . '.' . $image->extension;
             $image->saveOrFail();
         } catch (Exception $e) {
             return redirect()->route('image')->with('status', 'Error,' . $image->name . ' not found');
         }
-        return redirect()->route('image')->with('status', 'Image Has been renamed');
+        return redirect()->route('image')->with('status', 'Image ' . $image->name . ' has been renamed to ' . $old_name);
     }
 
     /** alternative

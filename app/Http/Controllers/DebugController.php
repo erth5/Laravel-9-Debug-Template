@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
+use App\Models\User;
 use App\Services\DebugService;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Config;
+use App\Models\Scopes\SoftDeletesScope;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
 
 /** Freie Wahl (wenn benötigt)
@@ -96,10 +96,10 @@ class DebugController extends Controller
                 dd($files);
             case 'lang':
                 return view('debug.lang');
-            case 'timezone': 
-                // TODO {{ \Carbon\Carbon::now();}} und bündeln
+            case 'timezone':
+                echo 'current time: ' . \Carbon\Carbon::now() . '<br></br>';
                 $timezone = date_default_timezone_get();
-                echo "The current server timezone is: " . $timezone;
+                echo "current server timezone: " . $timezone;
                 break;
             case 'path':
                 // current directory
@@ -117,6 +117,9 @@ class DebugController extends Controller
                 // Path to database folder and sqlite file
                 echo database_path('database.sqlite');
                 break;
+            case 'scope':
+                $scope = User::select('*')->get();
+                dd($scope);
             case 'config':
                 $configValidation = (new ConfigValidator())->run();
                 return $configValidation;

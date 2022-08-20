@@ -3,6 +3,7 @@
 namespace App\Models\Example;
 
 use App\Models\User;
+use App\Models\Scopes\SoftDeletesScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -47,8 +48,6 @@ class Person extends Model
         return Person::orderBy('created_at', "desc")->paginate(24);
     }
 
-
-
     /** display the people - static view*/
     public static function view()
     {
@@ -56,23 +55,18 @@ class Person extends Model
         return view('debug.person', compact('people'));
     }
 
-    // TODO use static??
-    /** Scope: Select which has only one image TODO - wie macht man das?
-     * using: ::hasOneImage
-     */
-    // public function scopeHasOneImage($query)
-    // {
-    //     dd($query);
-    //     $number = Image::where('person_id', '=', $id)->count();
-    //     return $number;
-    // }
+    /** scope to get all relationships */
+    public function scopeWithRelationships($query)
+    {
+        $query->with('image', 'user', 'lang');
+    }
 
     /** Count number of Images a person has TODO scope
      * @return number Amount Anzahl Bilder
      */
     public function countRelatedImages($id)
     {
-        return Image::where('person_id', '=', $id)->count();
+        return Image::where('person_id', $id)->count();
     }
 
     /** Get all Images related to a person
@@ -88,21 +82,16 @@ class Person extends Model
      */
     public function user()
     {
-        // Korrekt->person belongsTo user Test
         return $this->belongsTo(User::class);
     }
 
     /** Relationship: get language(s) spoken by user 
-     *Must be axtra table
+     *  wherePivot only exists on a BelongsToMany
      */
     public function lang()
     {
-        return $this->hasMany(Lang::class);
+        return $this->belongsToMany(Lang::class)->withPivot('lang_id');
     }
-
-    // public function test(){
-    //     return $this->hasM
-    // }
 
     /**
      * Relationship: get images associated with person

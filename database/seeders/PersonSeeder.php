@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Example\Lang;
 use App\Models\User;
+use App\Models\Example\Lang;
 use App\Models\Example\Person;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Eloquent\Relations\Pivot;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class PersonSeeder extends Seeder
 {
@@ -47,9 +47,11 @@ class PersonSeeder extends Seeder
             'username' => 'thespasst',
         ]);
 
-        // $lang = Lang::where('abbreviation', 'de')->first();
-        // $defautPerson->lang()->attach($lang);
-        // $defautPerson->lang()->save($lang);
+        $lang = Lang::where('abbreviation', 'de')->first();
+        $defautPerson->lang()->attach($lang);
+
+        $lang = Lang::where('abbreviation', 'en')->first();
+        $defautPerson->lang()->save($lang);
 
         /**
          * Variante: Factory
@@ -63,14 +65,11 @@ class PersonSeeder extends Seeder
         /**
          * Variante: Seeder
          * Generierung zugehöriger User im Seeder
-         * 
-         * TODO schreibe name zu surname und last_name
          * */
         // // Beispiel Einträge ohne Person
         // User::factory(3)->create();
         // // Beispieleinträge
         // User::factory(2)->create()->each(function ($user) {
-        //     // je ein Person referenz
         //     $person = Person::factory()->make();
         //     $user->person()->save($person);
         // });

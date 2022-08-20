@@ -17,7 +17,7 @@
 
     <img src="{{ asset('storage/' . $image->path . $image->name) }}" width='250' />
 
-    <form action="{{ route('destroy image', $image) }}">
+    <form method="POST" action="{{ route('destroy image', $image) }}">
         @csrf
         @method('DELETE')
         <button type="submit" value="submit">remove</button>
@@ -25,11 +25,12 @@
 
     <form method="POST" action="{{ route('rename image', [$image]) }}" enctype="multipart/form-data">
         @csrf
-        <input type="text" name="rename"> .{{$image->extension}}
+        <input type="text" name="rename"> .{{ $image->extension }}
         <button type="submit">rename</button>
     </form>
 
-    <form action="{{ route('update image', $image) }}" enctype="multipart/form-data" style="display: inline-block">
+    <form method="POST" action="{{ route('update image', $image) }}" enctype="multipart/form-data"
+        style="display: inline-block">
         @csrf
         @method('PUT')
         <input type="file" name="image" @error('image') is-invalid @enderror>
