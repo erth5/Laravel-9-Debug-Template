@@ -17,23 +17,26 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+            /** rel to images
+             *  $table->bigInteger('image_id');
+             *  foreign...
+             */
             $table->string('path')->nullable();
             $table->string('name')->default('imageNameError');
             $table->string('extension')->nullable();
 
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
+            $table->foreignId('person_id')->nullable()
+                ->constrained()
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->bigInteger('person_id')->unsigned()->nullable();
-            $table->foreign('person_id')
+            $table->unsignedInteger('user_id')->nullable();
+            $table->foreign('user_id')
                 ->references('id')
-                ->on('people')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->on('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
 
             $table->timestamp('upload_time', 0)->nullable();
             $table->timestamp('update_time', 0)->nullable();

@@ -1,5 +1,14 @@
 @extends('image.layout')
 @section('image_views')
+
+    @if ($message = Session::get('success'))
+        {{-- <strong style="text-align: center">{{ $message }}</strong> --}}
+        <img src="image/{{ Session::get('image') }}">
+        @php
+            $image = session::get('image');
+        @endphp
+    @endif
+
     @isset($images)
         <form action="/images/clear">
             <button>clear</button>
