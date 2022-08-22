@@ -29,21 +29,21 @@ Route::resource('items', ItemController::class);
 ## auth
 
 ```php
-        /* Current Login User Details */
-        $user = auth()->user();
-        var_dump($user);
-     
-        /* Current Login User ID */
-        $userID = auth()->user()->id; 
-        var_dump($userID);
-      
-        /* Current Login User Name */
-        $userName = auth()->user()->name; 
-        var_dump($userName);
-         
-        /* Current Login User Email */
-        $userEmail = auth()->user()->email; 
-        var_dump($userEmail);
+/* Current Login User Details */
+$user = auth()->user();
+var_dump($user);
+
+/* Current Login User ID */
+$userID = auth()->user()->id; 
+var_dump($userID);
+
+/* Current Login User Name */
+$userName = auth()->user()->name; 
+var_dump($userName);
+ 
+/* Current Login User Email */
+$userEmail = auth()->user()->email; 
+var_dump($userEmail);
 ```
 
 ## relationship key-name
@@ -96,7 +96,7 @@ Model::has('posts')->get()
 
 #### 2 Once you have a model, if you already have loaded the collection (which below #4 checks), you can call the count() method of the collection
 
-```code
+``` code
 $model->posts->count();
 ```
 
