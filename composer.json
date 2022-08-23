@@ -12,6 +12,7 @@
         "ashallendesign/laravel-config-validator": "^2.2",
         "consoletvs/charts": "^7.3",
         "doctrine/dbal": "^3.4",
+        "felixdorn/laravel-make-pivot-table": "^0.1.1",
         "getsolaris/laravel-make-service": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",

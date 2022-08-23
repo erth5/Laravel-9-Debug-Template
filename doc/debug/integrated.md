@@ -2,6 +2,8 @@
 
 ## Background / Config
 
+<https://github.com/felixdorn/laravel-make-pivot-table>
+
 <https://github.com/laravel/telescope>
 
 <https://github.com/fruitcake/laravel-telescope-toolbar>
