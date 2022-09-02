@@ -20,6 +20,7 @@
     'configLocale' => 'Spracheinstellung in der Konfig:',
 
     'telescope' => 'Telescope',
+    'horizon' => 'Horizon',
     'swagger' => 'Swagger',
     'swagger_json' => 'Swagger-JSON-Pfad',
     'voyager' => 'Voyager',

@@ -20,6 +20,7 @@
     'configLocale' => 'config language:',
 
     'telescope' => 'telescope',
+    'horizon' => 'horizon',
     'swagger' => 'swagger',
     'swagger_json' => 'Swagger-JSON-path',
     'index' => 'indexiation',

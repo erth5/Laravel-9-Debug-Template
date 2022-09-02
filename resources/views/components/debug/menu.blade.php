@@ -22,6 +22,7 @@
 <blockquote></blockquote>
 <a href="/route:list">{{ __('debug.rl') }}</a>
 <a href="/telescope">{{ __('debug.telescope') }}</a>
+<a href="/horizon">{{ __('debug.horizon') }}</a>
 <a class="disabled" href="/api/documentation">{{ __('debug.swagger') }}</a>
 <a class="disabled" href="/docs/api-docs.json">{{ __('debug.swagger_json') }}</a>
 <a class="disabled" href="/admin">{{ __('debug.voyager') }}</a>
