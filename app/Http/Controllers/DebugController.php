@@ -136,6 +136,10 @@ class DebugController extends Controller
                 // case 'request':
                 // echo $request;
                 return redirect()->route('debug')->withErrors(['msg' => 'message for errors']);
+            case 'url':
+                dd(url());
+            case 'route':
+                dd(Route::getRoutes());
             default:
                 return view('debug.layout');
         }
