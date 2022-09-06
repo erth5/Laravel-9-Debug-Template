@@ -29,8 +29,10 @@ class Image extends Model
     const UPDATED_AT = 'update_time';
     const DELETED_AT = 'remove_time';
 
-    /** Anwendung folgend!!:
-     * $completedProjects = Project::completed()->get(); */
+    /** don't forget, after scope there need a get or first
+     * $completedProjects = Project::completed()->get();
+     * This scopes are static ::, but can also non-static ->
+     * */
 
     /**
      * Scopes:  Select images that are have a specific relation to user and person
@@ -38,7 +40,7 @@ class Image extends Model
      */
     public function scopeFullAssigned($query)
     {
-        return $query::where('person_id' != null && 'user_id' != null);
+        return $query->where('person_id' != null && 'user_id' != null);
     }
 
     public function scopeAssigned($query)
