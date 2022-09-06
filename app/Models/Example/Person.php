@@ -23,7 +23,29 @@ class Person extends Model
         'username',
     ];
 
-    /** 
+    /**
+     * Gibt alle Attribute eines Models zurück,
+     * wobei auch leere Attribute ebenfalls mit null zurückgegeben werden.
+     * https://stackoverflow.com/questions/33512184/get-laravel-models-with-all-attributes
+     */
+    public function getAllAttributes()
+    {
+        $columns = $this->getFillable();
+        // Another option is to get all columns for the table like so:
+        // $columns = \Schema::getColumnListing($this->table);
+        // but it's safer to just get the fillable fields
+
+        $attributes = $this->getAttributes();
+
+        foreach ($columns as $column) {
+            if (!array_key_exists($column, $attributes)) {
+                $attributes[$column] = null;
+            }
+        }
+        return $attributes;
+    }
+
+    /**
      * get some people by id Range
      */
     public static function peopleRange($firstId, $lastId)
@@ -35,7 +57,7 @@ class Person extends Model
         return $people;
     }
 
-    /** 
+    /**
      * get all people by id with pagination, with sort
      */
     public static function peopleOrganized()
@@ -85,7 +107,7 @@ class Person extends Model
         return $this->belongsTo(User::class);
     }
 
-    /** Relationship: get language(s) spoken by user 
+    /** Relationship: get language(s) spoken by user
      *  wherePivot only exists on a BelongsToMany
      */
     public function lang()
