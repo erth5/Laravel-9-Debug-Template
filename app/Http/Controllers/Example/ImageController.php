@@ -40,7 +40,7 @@ class ImageController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * 
+     *
      * @param image array all saved images
      * @param name string name of image
      * @param path string path of image
@@ -52,7 +52,7 @@ class ImageController extends Controller
     public function store(StoreImageRequest $request)
     {
         /* Validation
-         +Recommendet RequestFile 
+         +Recommendet RequestFile
          app/Rules to add own validator rules
          non static in module
          static in Service (this case service use other Request Facade)
@@ -74,12 +74,12 @@ class ImageController extends Controller
             /* Pfad mit Namen und speichern*/
             // $path = $request->file('image')->storeAs('images', $name, 'public');
             /* Pfad ohne Namen */
-            $name = time() . $request->file('image')->getClientOriginalName();
+            $name = time() . $request->file('image')->hasName();
             $request->file('image')->storeAs('images', $name, 'public');
             $metadata = Image::create();
             $metadata->name = $name;
             $metadata->path = 'images/';
-            $metadata->extension = $request->file('image')->getClientOriginalExtension();
+            $metadata->extension = $request->file('image')->extension();
             $metadata->saveOrFail();
             session()->put('success', 'image ' . $metadata->name . ' saved (session)');
             session()->put('image', $metadata->name);
@@ -131,11 +131,11 @@ class ImageController extends Controller
             // store for not relevant names
             $storePath = $request->file('image')->store('public/' . str_replace('/', '', $image->path));
             $image->name = str_replace('public/' . $image->path, '', $storePath);
-            $image->extension = $request->file('image')->getClientOriginalExtension();
+            $image->extension = $request->file('image')->extension();
         } catch (Exception $e) {
             dd($e);
         }
-        $image->extension = $request->file('image')->getClientOriginalExtension();
+        $image->extension = $request->file('image')->extension();
         $image->saveOrFail();
         return redirect()->route('image')->with('status', 'Image ' . $image->name . ' has been updated');
     }
@@ -175,7 +175,7 @@ class ImageController extends Controller
         return view('image.index', compact('images'));
     }
 
-    /** 
+    /**
      * rename a image to new name and path
      */
     public function rename(Request $request, Image $image)
@@ -203,7 +203,7 @@ class ImageController extends Controller
     {
         $validation = new ImageValidatorModule($request);
         $validation->imageValidator();
-        $name = $request->file('image')->getClientOriginalName();
+        $name = $request->file('image')->hasName();
         $path = $request->file('image')->store('image');
 
         $dbItem = new Image();
@@ -222,11 +222,11 @@ class ImageController extends Controller
     public function debug(Request $req)
     {
         //Display File Name
-        echo 'File Name: ' . $req->getClientOriginalName();
+        echo 'File Name: ' . $req->hasName();
         echo '<br>';
 
         //Display File Extension
-        echo 'File Extension: ' . $req->getClientOriginalExtension();
+        echo 'File Extension: ' . $req->extension();
         echo '<br>';
 
         //Display File Real Path
@@ -242,7 +242,7 @@ class ImageController extends Controller
 
         //copy Uploaded File
         $destinationPath = 'debugPath';
-        $req->copy($destinationPath, $req->getClientOriginalName());
+        $req->copy($destinationPath, $req->hasName());
 
         /* display self metadata */
         $path = 'debug';

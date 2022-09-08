@@ -2,7 +2,6 @@
 @if ($image->remove_time != null)
     <p>deleted at: {{ $image->remove_time }}</p>
     <form action="{{ route('restore image', $image) }}" method="GET">
-        @csrf
         <button type="submit">restore</button>
     </form>
 @else
