@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Carbon\Carbon;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
@@ -28,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->configureRateLimiting();
 
@@ -56,8 +55,8 @@ class AppServiceProvider extends ServiceProvider
      */
     protected function configureRateLimiting(): void
     {
-        RateLimiter::for('global', function (Request $request) {
-            return Limit::perMinute(1);
+        RateLimiter::for('global', function () {
+            return Limit::perMinute(200);
         });
         RateLimiter::for('downloads', function (Request $request) {
             return Limit::perMinute(10)->by($request->user()->id);
