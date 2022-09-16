@@ -12,3 +12,9 @@ php artisan event:clear
 php artisan cache:forget spatie.permission.cache 
 php artisan cache:clear
 ```
+
+```shell
+php artisan config:clear
+php artisan cache:clear
+composer dump-autoload 
+```

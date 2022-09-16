@@ -15,7 +15,7 @@ use App\Http\Controllers\Example\PermissionAndRoleController;
 | Web Routes Debug
 |--------------------------------------------------------------------------
 |
-| This routes file registered some routes, which help you analyse 
+| This routes file registered some routes, which help you analyse
 | your Laravel Environement. By disabling DEBUG Mode in env file,
 | this routes will be deactivated
 |
@@ -66,15 +66,15 @@ Route::controller(ImageController::class)->group(function () {
     Route::put('/images/{image}/update', 'update')->name('update image');
     Route::delete('/images/{image}/destroy', 'destroy')->name('destroy image');
     Route::post('/images/{image}/rename', 'rename')->name('rename image');
-    
+
     Route::get('/images/{image}/restore', 'restore')->name('restore image');
     Route::get('/images/clear', 'clear')->name('clear images');
     Route::post('/images/debug', 'debug')->name('debug image');
 });
 
 Route::controller(LangController::class)->group(function () {
-    Route::get('/lang/home', 'index');
-    Route::get('/lang/lang_debug', 'debug');
+    // Route::get('/lang/home', 'index');
+    // Route::get('/lang/lang_debug', 'debug');
     Route::get('/lang/change', 'change')->name('changeLang');
 });
 
