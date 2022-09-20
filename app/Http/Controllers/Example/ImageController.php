@@ -218,6 +218,9 @@ class ImageController extends Controller
                 DB::commit();
             } else {
                 DB::rollback();
+                // possible back()->withInput()
+                // possible withInput(Input::all())
+                // need value="{{ old('age') }}"
             }
         } catch (Exception $e) {
             DB::rollback();
