@@ -6,6 +6,7 @@ use Exception;
 use Mockery\Undefined;
 use Illuminate\Http\Request;
 use App\Models\Example\Image;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Services\Global\UtilsService;
 use Illuminate\Support\Facades\Storage;
@@ -206,12 +207,23 @@ class ImageController extends Controller
         $name = $request->file('image')->hasName();
         $path = $request->file('image')->store('image');
 
-        $dbItem = new Image();
-        $dbItem->name = $name;
-        // path descripes the name in Path "storage/app/images
-        $dbItem->path = $path;
-        $dbItem->saveOrFail();
+        // SaveOrFail costumized
+        DB::beginTransaction();
+        try {
+            $dbItem = new Image();
+            $dbItem->name = $name;
+            // path descripes the name in Path "storage/app/images
+            $dbItem->path = $path;
+            if ($dbItem->save()) {
+                DB::commit();
+            } else {
+                DB::rollback();
+            }
+        } catch (Exception $e) {
+            DB::rollback();
+        }
 
+        // Ohne Route Redirect
         $images = Image::all();
         // dd($request, $validation, $dbItem, $name, $path);
         return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
