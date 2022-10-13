@@ -18,3 +18,4 @@ Route::middleware(['throttle:global'])->group(function () {
         return view('welcome');
     });
 });
+

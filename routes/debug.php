@@ -48,7 +48,9 @@ Route::controller(PermissionAndRoleController::class)->group(function () {
     Route::match(array('GET', 'POST'), '/permission/user', 'user')->name('editUserPermissions');
 });
 
+Route::resource('users', UserController::class);
 Route::get('user/test', [UserController::class, 'test']);
+
 Route::controller(PersonController::class)->group(function () {
     Route::get('/person/user', 'users');
     Route::get('/person/person', 'people');

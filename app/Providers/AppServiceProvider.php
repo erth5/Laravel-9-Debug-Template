@@ -3,12 +3,15 @@
 namespace App\Providers;
 
 use Carbon\Carbon;
+use App\ResourceRegistrar;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\RateLimiter;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
+use Illuminate\Routing\ResourceRegistrar as BaseResourceRegistrar;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -40,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
         //         ->run();
         // }
 
-        // Carbon Time Language
+        /** Carbon Time Language */
         $lang = (Config::get('app.locale'));
         Carbon::setLocale($lang);
 
@@ -49,6 +52,11 @@ class AppServiceProvider extends ServiceProvider
             $view->with('user', Auth::user());
             // $view->with('social', Social::all());
         });
+
+        /**
+         * Erweiterung der Resource Routes um eine connection route
+        */
+        $this->app->bind(BaseResourceRegistrar::class, ResourceRegistrar::class);
     }
     /**
      * Configure the rate limiters for the application.
