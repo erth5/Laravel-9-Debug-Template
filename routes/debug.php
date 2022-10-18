@@ -75,9 +75,9 @@ Route::controller(ImageController::class)->group(function () {
 });
 
 Route::controller(LangController::class)->group(function () {
-    // Route::get('/lang/home', 'index');
-    // Route::get('/lang/lang_debug', 'debug');
-    Route::get('/lang/change', 'change')->name('changeLang');
+    Route::get('/lang/home', 'index');
+    Route::get('/lang/lang_debug', 'debug');
+    Route::get('/lang/change', 'change')->name('langChange');
 });
 
 Route::get('/person/adjust', CallAdjust::class)->name('adjust');

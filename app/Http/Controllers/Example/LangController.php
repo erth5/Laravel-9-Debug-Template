@@ -30,7 +30,7 @@ class LangController extends Controller
     {
         App::setLocale($request->lang);
         session()->put('locale', $request->lang);
-        return redirect()->route('changeLang');
+        return back();
     }
 
     /** Proof current lang status

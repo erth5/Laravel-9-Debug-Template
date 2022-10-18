@@ -44,7 +44,7 @@
 
     <script type="text/javascript">
         var lang = null;
-        var url = "{{ route('changeLang') }}";
+        var url = "{{ route('langChange') }}";
         var value = null;
         if (document.getElementById('lang') != null) {
             selector = document.getElementById('lang')
