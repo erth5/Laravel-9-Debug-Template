@@ -20,6 +20,7 @@
         "laravel/telescope": "^4.9",
         "laravel/tinker": "^2.7",
         "lorisleiva/laravel-actions": "^2.4",
+        "magentron/laravel-blade-lint": "^1.0",
         "milon/barcode": "^9.0",
         "opcodesio/log-viewer": "^1.2",
         "spatie/laravel-permission": "^5.5",

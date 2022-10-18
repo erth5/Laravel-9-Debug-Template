@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a353ac5ce8824583690c3d00e1afc82",
+    "content-hash": "aa3e8cbde426233ffc58035fdc070242",
     "packages": [
         {
             "name": "ashallendesign/laravel-config-validator",
-            "version": "v2.2.0",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ash-jc-allen/laravel-config-validator.git",
-                "reference": "62d18ff316bd71b560c739ac02b4fefbed48ee36"
+                "reference": "148b1de6e428456bef2392261ba216047d93a59c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ash-jc-allen/laravel-config-validator/zipball/62d18ff316bd71b560c739ac02b4fefbed48ee36",
-                "reference": "62d18ff316bd71b560c739ac02b4fefbed48ee36",
+                "url": "https://api.github.com/repos/ash-jc-allen/laravel-config-validator/zipball/148b1de6e428456bef2392261ba216047d93a59c",
+                "reference": "148b1de6e428456bef2392261ba216047d93a59c",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ash-jc-allen/laravel-config-validator/issues",
-                "source": "https://github.com/ash-jc-allen/laravel-config-validator/tree/v2.2.0"
+                "source": "https://github.com/ash-jc-allen/laravel-config-validator/tree/v2.3.0"
             },
             "funding": [
                 {
@@ -79,7 +79,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-05-25T09:07:03+00:00"
+            "time": "2022-10-17T13:13:09+00:00"
         },
         {
             "name": "brick/math",
@@ -2148,16 +2148,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.5.2",
+            "version": "3.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "c73c4eb31f2e883b3897ab5591aa2dbc48112433"
+                "reference": "3d2ed6215e096e900662bd8f993fc5ad81cc4135"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/c73c4eb31f2e883b3897ab5591aa2dbc48112433",
-                "reference": "c73c4eb31f2e883b3897ab5591aa2dbc48112433",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/3d2ed6215e096e900662bd8f993fc5ad81cc4135",
+                "reference": "3d2ed6215e096e900662bd8f993fc5ad81cc4135",
                 "shasum": ""
             },
             "require": {
@@ -2219,7 +2219,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.5.2"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.8.0"
             },
             "funding": [
                 {
@@ -2235,7 +2235,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-09-23T18:59:16+00:00"
+            "time": "2022-10-18T06:54:34+00:00"
         },
         {
             "name": "league/glide",
@@ -2577,6 +2577,62 @@
                 }
             ],
             "time": "2022-01-25T15:50:27+00:00"
+        },
+        {
+            "name": "magentron/laravel-blade-lint",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Magentron/laravel-blade-lint.git",
+                "reference": "6c6ccfb2bf87651cc77c09f541d8428c13aea35e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Magentron/laravel-blade-lint/zipball/6c6ccfb2bf87651cc77c09f541d8428c13aea35e",
+                "reference": "6c6ccfb2bf87651cc77c09f541d8428c13aea35e",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Magentron\\BladeLint\\Providers\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Magentron\\BladeLint\\": "src/Magentron/BladeLint"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen Derks",
+                    "email": "jeroen@derks.it",
+                    "homepage": "https://www.derks.it/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel Blade Lint console command",
+            "homepage": "https://github.com/Magentron/laravel-blade-lint",
+            "keywords": [
+                "blade",
+                "console",
+                "laravel",
+                "lint"
+            ],
+            "support": {
+                "issues": "https://github.com/Magentron/laravel-blade-lint/issues",
+                "source": "https://github.com/Magentron/laravel-blade-lint/tree/master"
+            },
+            "time": "2018-11-28T14:07:44+00:00"
         },
         {
             "name": "masterminds/html5",
@@ -3176,16 +3232,16 @@
         },
         {
             "name": "nunomaduro/termwind",
-            "version": "v1.14.0",
+            "version": "v1.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/termwind.git",
-                "reference": "10065367baccf13b6e30f5e9246fa4f63a79eb1d"
+                "reference": "86fc30eace93b9b6d4c844ba6de76db84184e01b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/10065367baccf13b6e30f5e9246fa4f63a79eb1d",
-                "reference": "10065367baccf13b6e30f5e9246fa4f63a79eb1d",
+                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/86fc30eace93b9b6d4c844ba6de76db84184e01b",
+                "reference": "86fc30eace93b9b6d4c844ba6de76db84184e01b",
                 "shasum": ""
             },
             "require": {
@@ -3242,7 +3298,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nunomaduro/termwind/issues",
-                "source": "https://github.com/nunomaduro/termwind/tree/v1.14.0"
+                "source": "https://github.com/nunomaduro/termwind/tree/v1.14.1"
             },
             "funding": [
                 {
@@ -3258,20 +3314,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-08-01T11:03:24+00:00"
+            "time": "2022-10-17T15:20:29+00:00"
         },
         {
             "name": "opcodesio/log-viewer",
-            "version": "v1.6.1",
+            "version": "v1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opcodesio/log-viewer.git",
-                "reference": "60dd54f381a7f3441efd947a0a12dec2eeae148e"
+                "reference": "d6e0a337aa2b4453f173179f3e0edb3a9ea94381"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opcodesio/log-viewer/zipball/60dd54f381a7f3441efd947a0a12dec2eeae148e",
-                "reference": "60dd54f381a7f3441efd947a0a12dec2eeae148e",
+                "url": "https://api.github.com/repos/opcodesio/log-viewer/zipball/d6e0a337aa2b4453f173179f3e0edb3a9ea94381",
+                "reference": "d6e0a337aa2b4453f173179f3e0edb3a9ea94381",
                 "shasum": ""
             },
             "require": {
@@ -3331,9 +3387,9 @@
             ],
             "support": {
                 "issues": "https://github.com/opcodesio/log-viewer/issues",
-                "source": "https://github.com/opcodesio/log-viewer/tree/v1.6.1"
+                "source": "https://github.com/opcodesio/log-viewer/tree/v1.6.2"
             },
-            "time": "2022-10-11T06:49:32+00:00"
+            "time": "2022-10-13T14:26:27+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -7188,16 +7244,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v5.4.1",
+            "version": "v5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "264dce589e7ce37a7ba99cb901eed8249fbec92f"
+                "reference": "1a7ea2afc49c3ee6d87061f5a233e3a035d0eae7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/264dce589e7ce37a7ba99cb901eed8249fbec92f",
-                "reference": "264dce589e7ce37a7ba99cb901eed8249fbec92f",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1a7ea2afc49c3ee6d87061f5a233e3a035d0eae7",
+                "reference": "1a7ea2afc49c3ee6d87061f5a233e3a035d0eae7",
                 "shasum": ""
             },
             "require": {
@@ -7212,15 +7268,19 @@
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4.1",
                 "ext-filter": "*",
-                "phpunit/phpunit": "^7.5.20 || ^8.5.21 || ^9.5.10"
+                "phpunit/phpunit": "^7.5.20 || ^8.5.30 || ^9.5.25"
             },
             "suggest": {
                 "ext-filter": "Required to use the boolean validator."
             },
             "type": "library",
             "extra": {
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": true
+                },
                 "branch-alias": {
-                    "dev-master": "5.4-dev"
+                    "dev-master": "5.5-dev"
                 }
             },
             "autoload": {
@@ -7252,7 +7312,7 @@
             ],
             "support": {
                 "issues": "https://github.com/vlucas/phpdotenv/issues",
-                "source": "https://github.com/vlucas/phpdotenv/tree/v5.4.1"
+                "source": "https://github.com/vlucas/phpdotenv/tree/v5.5.0"
             },
             "funding": [
                 {
@@ -7264,7 +7324,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-12T23:22:04+00:00"
+            "time": "2022-10-16T01:01:54+00:00"
         },
         {
             "name": "voku/portable-ascii",
@@ -7549,79 +7609,6 @@
                 }
             ],
             "time": "2022-09-13T10:47:01+00:00"
-        },
-        {
-            "name": "composer/class-map-generator",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/composer/class-map-generator.git",
-                "reference": "1e1cb2b791facb2dfe32932a7718cf2571187513"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/composer/class-map-generator/zipball/1e1cb2b791facb2dfe32932a7718cf2571187513",
-                "reference": "1e1cb2b791facb2dfe32932a7718cf2571187513",
-                "shasum": ""
-            },
-            "require": {
-                "composer/pcre": "^2 || ^3",
-                "php": "^7.2 || ^8.0",
-                "symfony/finder": "^4.4 || ^5.3 || ^6"
-            },
-            "require-dev": {
-                "phpstan/phpstan": "^1.6",
-                "phpstan/phpstan-deprecation-rules": "^1",
-                "phpstan/phpstan-phpunit": "^1",
-                "phpstan/phpstan-strict-rules": "^1.1",
-                "symfony/filesystem": "^5.4 || ^6",
-                "symfony/phpunit-bridge": "^5"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Composer\\ClassMapGenerator\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jordi Boggiano",
-                    "email": "j.boggiano@seld.be",
-                    "homepage": "https://seld.be"
-                }
-            ],
-            "description": "Utilities to scan PHP code and generate class maps.",
-            "keywords": [
-                "classmap"
-            ],
-            "support": {
-                "issues": "https://github.com/composer/class-map-generator/issues",
-                "source": "https://github.com/composer/class-map-generator/tree/1.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2022-06-19T11:31:27+00:00"
         },
         {
             "name": "composer/pcre",
@@ -8956,20 +8943,19 @@
         },
         {
             "name": "nunomaduro/larastan",
-            "version": "2.2.1",
+            "version": "2.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/larastan.git",
-                "reference": "a2567963b61ee35dedf87aac95136ac4944e86fa"
+                "reference": "42ee94bc30f3501a1d01a47222b49c1fbb54a316"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/a2567963b61ee35dedf87aac95136ac4944e86fa",
-                "reference": "a2567963b61ee35dedf87aac95136ac4944e86fa",
+                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/42ee94bc30f3501a1d01a47222b49c1fbb54a316",
+                "reference": "42ee94bc30f3501a1d01a47222b49c1fbb54a316",
                 "shasum": ""
             },
             "require": {
-                "composer/class-map-generator": "^1.0",
                 "composer/pcre": "^3.0",
                 "ext-json": "*",
                 "illuminate/console": "^9",
@@ -9031,7 +9017,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nunomaduro/larastan/issues",
-                "source": "https://github.com/nunomaduro/larastan/tree/2.2.1"
+                "source": "https://github.com/nunomaduro/larastan/tree/2.2.5"
             },
             "funding": [
                 {
@@ -9051,7 +9037,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-10-04T16:15:14+00:00"
+            "time": "2022-10-18T10:13:18+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -9304,16 +9290,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.8.8",
+            "version": "1.8.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "08310ce271984587e2a4cda94e1ac66510a6ea07"
+                "reference": "0c4459dc42c568b818b3f25186589f3acddc1823"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/08310ce271984587e2a4cda94e1ac66510a6ea07",
-                "reference": "08310ce271984587e2a4cda94e1ac66510a6ea07",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0c4459dc42c568b818b3f25186589f3acddc1823",
+                "reference": "0c4459dc42c568b818b3f25186589f3acddc1823",
                 "shasum": ""
             },
             "require": {
@@ -9343,7 +9329,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.8.8"
+                "source": "https://github.com/phpstan/phpstan/tree/1.8.10"
             },
             "funding": [
                 {
@@ -9359,7 +9345,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-06T12:51:57+00:00"
+            "time": "2022-10-17T14:23:35+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -10953,16 +10939,16 @@
         },
         {
             "name": "spatie/laravel-ignition",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-ignition.git",
-                "reference": "75d465ec577abb432af1ca9b33683d5a6e921eb9"
+                "reference": "f2336fc79d99aab5cf27fa4aebe5e9c9ecf3808a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/75d465ec577abb432af1ca9b33683d5a6e921eb9",
-                "reference": "75d465ec577abb432af1ca9b33683d5a6e921eb9",
+                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/f2336fc79d99aab5cf27fa4aebe5e9c9ecf3808a",
+                "reference": "f2336fc79d99aab5cf27fa4aebe5e9c9ecf3808a",
                 "shasum": ""
             },
             "require": {
@@ -11039,7 +11025,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-10-04T10:14:31+00:00"
+            "time": "2022-10-14T12:24:21+00:00"
         },
         {
             "name": "theseer/tokenizer",

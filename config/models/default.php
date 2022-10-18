@@ -1,7 +1,7 @@
 <?php
 return [
-    'User'
-    // 'Person',
-    // 'images',
-    // 'langs',
+    'User',
+    'Person',
+    'images',
+    'langs',
 ];
