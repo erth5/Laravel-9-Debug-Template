@@ -93,15 +93,18 @@ class ModelTest extends TestCase
      */
     public function test_db_schema_spatie_tables_exist()
     {
-        $allDbNamesArray = Config::get('database.spatie');
-        // dd($allDbNamesArray);
-        foreach ($allDbNamesArray as $dbName) {
-            if (Schema::hasTable($dbName)) {
-                $this->assertTrue(true);
-            } else {
-                $this->assertFalse(true);
+        if (env('SPATIE') == true) {
+            $allDbNamesArray = Config::get('database.spatie');
+            // dd($allDbNamesArray);
+            foreach ($allDbNamesArray as $dbName) {
+                if (Schema::hasTable($dbName)) {
+                    $this->assertTrue(true);
+                } else {
+                    $this->assertFalse(true);
+                }
             }
         }
+        $this->assertFalse(false);
     }
 
     /**

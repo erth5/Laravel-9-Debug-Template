@@ -1,6 +1,11 @@
 # Environment
 
+## composer.json
 
+```json
+,
+    "proxy": "http://127.0.0.1:8000"
+```
 
 ## table: session
 
@@ -20,8 +25,6 @@ composer.lock und vendor muss vor der Installation gelöscht werden, da Minor Up
 
 Nohac/laravel-graphiql
 
-
-
 ### Installation
 
 ``` terminal
@@ -36,4 +39,3 @@ Route::group(['prefix' => 'admin'], function () {
 });
 use TCG\Voyager\Facades\Voyager;
 ```
-

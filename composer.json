@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.0.2",
         "ashallendesign/laravel-config-validator": "^2.2",
+        "darkaonline/l5-swagger": "^8.4",
         "doctrine/dbal": "^3.4",
         "felixdorn/laravel-make-pivot-table": "^0.1.1",
         "getsolaris/laravel-make-service": "^1.0",

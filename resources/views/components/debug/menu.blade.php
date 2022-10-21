@@ -18,20 +18,21 @@
 <a href="/debug/config">{{ __('debug.config') }}</a>
 <a href="/info/lang">{{ __('debug.lang') }}</a>
 <a href="/lang/lang_debug">{{ __('debug.lang_debug') }}</a>
-<a href="/info/timezone">timezone</a>
+<a href="/info/timezone">{{ __('debug.timezone')}}</a>
 <blockquote></blockquote>
 <a href="/route:list">{{ __('debug.rl') }}</a>
-<a href="/telescope">{{ __('debug.telescope') }}</a>
-<a href="/horizon">{{ __('debug.horizon') }}</a>
+<a @if (env('TELESCOPE')) @else
+class="disabled" @endif href="/telescope">{{ __('debug.telescope') }}</a>
+<a @if (env('HORIZON')) @else class="disabled" @endif href="/horizon">{{ __('debug.horizon') }}</a>
 <a href="/log-viewer">{{ __('debug.log_viewer') }}</a>
-<a class="disabled" href="/api/documentation">{{ __('debug.swagger') }}</a>
-<a class="disabled" href="/docs/api-docs.json">{{ __('debug.swagger_json') }}</a>
-<a class="disabled" href="/admin">{{ __('debug.voyager') }}</a>
+<a @if (env('SWAGGER')) @else class="disabled" @endif href="/api/documentation">{{ __('debug.swagger') }}</a>
+<a @if (env('SWAGGER')) @else class="disabled" @endif href="/docs/api-docs.json">{{ __('debug.swagger_json') }}</a>
+<a @if (env('VOJAGER')) @else class="disabled" @endif href="/admin">{{ __('debug.voyager') }}</a>
 <blockquote></blockquote>
 <br>
 
 <a href="/index/test"> {{ __('debug.index') }} </a>
-<a href="/debug/scope">{{__('debug.scope')}}</a>
+<a href="/debug/scope">{{ __('debug.scope') }}</a>
 <blockquote>
     <a href="/debug/test"> {{ __('debug.test_debug') }} </a>
     <a href="/person/adjust">{{ __('debug.test_action') }}</a>
