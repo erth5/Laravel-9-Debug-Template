@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Services\DebugService;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Config;
-use App\Models\Scopes\SoftDeletesScope;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
 
 /** Freie Wahl (wenn benötigt)
