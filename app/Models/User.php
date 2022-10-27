@@ -40,7 +40,7 @@ class User extends Authenticatable
 
     /**
      * this data can't be accessed directly.
-     * 
+     *
      * @var array<int, string>
      */
     protected $dates = ['deleted_at'];
@@ -101,7 +101,7 @@ class User extends Authenticatable
      */
     public function person()
     {
-        return $this->hasOne(Person::class);
+        return $this->hasOne(Person::class, 'user_id', 'id');
     }
 
     /** Relationship: get Images through person */
