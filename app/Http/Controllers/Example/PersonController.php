@@ -42,9 +42,9 @@ class PersonController extends Controller
         return view('debug.user', compact('people'));
     }
 
-    /** 
+    /**
      * Speichert eine vorhandene oder neue Person ab
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Person $person, Request $request)
@@ -116,13 +116,13 @@ class PersonController extends Controller
         // dd('Erfassung vollständig');
 
         /** works */
-        $person = Person::where('username', 'laraveller')->first();
-        $numberRelatedImages = $person->countRelatedImages($person->id);
-        if ($numberRelatedImages >= 2)
-            $relatedImages = $person->getRelatedImages($person->id);
-        else
-            dd($numberRelatedImages);
-        dd($relatedImages);
+        // $person = Person::where('username', 'laraveller')->first();
+        // $numberRelatedImages = $person->countRelatedImages($person->id);
+        // if ($numberRelatedImages >= 2)
+        //     $relatedImages = $person->getRelatedImages($person->id);
+        // else
+        //     dd($numberRelatedImages);
+        // dd($relatedImages);
 
         /** not works */
         // return View::make('/debug.test', compact('test'))
@@ -140,6 +140,10 @@ class PersonController extends Controller
         /** works */
         // $test = Person::withRelationships()->get();
         // dd($test);
+
+        /** need implementet design */
+        $test = Person::peopleAdded();
+        return view('debug.person', compact('test'));
     }
 }
 

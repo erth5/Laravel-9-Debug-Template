@@ -28,4 +28,13 @@
         </h3>
     @endisset
 
+    @isset($test)
+        @forelse ($test as $tes)
+            <p>{{$tes->surname}}</p>
+        @empty
+            empty
+        @endforelse
+        {!! $test->links() !!}
+    @endisset
+
 @endsection

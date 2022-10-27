@@ -1461,16 +1461,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.4.1",
+            "version": "2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "69568e4293f4fa993f3b0e51c9723e1e17c41379"
+                "reference": "67c26b443f348a51926030c83481b85718457d3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/69568e4293f4fa993f3b0e51c9723e1e17c41379",
-                "reference": "69568e4293f4fa993f3b0e51c9723e1e17c41379",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/67c26b443f348a51926030c83481b85718457d3d",
+                "reference": "67c26b443f348a51926030c83481b85718457d3d",
                 "shasum": ""
             },
             "require": {
@@ -1560,7 +1560,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.4.1"
+                "source": "https://github.com/guzzle/psr7/tree/2.4.3"
             },
             "funding": [
                 {
@@ -1576,7 +1576,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-08-28T14:45:39+00:00"
+            "time": "2022-10-26T14:07:24+00:00"
         },
         {
             "name": "intervention/image",
@@ -1664,16 +1664,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v9.36.4",
+            "version": "v9.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "15ce569fd93124e8e2257c24e3ed85b9ef9951d6"
+                "reference": "0c9675abf6d966e834b2ebeca3319f524e07a330"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/15ce569fd93124e8e2257c24e3ed85b9ef9951d6",
-                "reference": "15ce569fd93124e8e2257c24e3ed85b9ef9951d6",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/0c9675abf6d966e834b2ebeca3319f524e07a330",
+                "reference": "0c9675abf6d966e834b2ebeca3319f524e07a330",
                 "shasum": ""
             },
             "require": {
@@ -1846,7 +1846,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-10-20T16:11:03+00:00"
+            "time": "2022-10-25T15:43:46+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -1975,16 +1975,16 @@
         },
         {
             "name": "laravel/telescope",
-            "version": "v4.9.4",
+            "version": "v4.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/telescope.git",
-                "reference": "ca8bec380ecef80d00ce6daecac2dc17c7e35ccd"
+                "reference": "a316d6d15793b559c51ccb4b5dc59b223da500e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/ca8bec380ecef80d00ce6daecac2dc17c7e35ccd",
-                "reference": "ca8bec380ecef80d00ce6daecac2dc17c7e35ccd",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/a316d6d15793b559c51ccb4b5dc59b223da500e5",
+                "reference": "a316d6d15793b559c51ccb4b5dc59b223da500e5",
                 "shasum": ""
             },
             "require": {
@@ -2037,9 +2037,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/telescope/issues",
-                "source": "https://github.com/laravel/telescope/tree/v4.9.4"
+                "source": "https://github.com/laravel/telescope/tree/v4.9.5"
             },
-            "time": "2022-10-03T14:55:50+00:00"
+            "time": "2022-10-06T14:01:10+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3470,16 +3470,16 @@
         },
         {
             "name": "opcodesio/log-viewer",
-            "version": "v1.6.3",
+            "version": "v1.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opcodesio/log-viewer.git",
-                "reference": "6f5031f62c41bc157e24fe32ef3fd3f58b12a99e"
+                "reference": "1440ef1c87dadd4f6515d88b6a6b4e3a72156863"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opcodesio/log-viewer/zipball/6f5031f62c41bc157e24fe32ef3fd3f58b12a99e",
-                "reference": "6f5031f62c41bc157e24fe32ef3fd3f58b12a99e",
+                "url": "https://api.github.com/repos/opcodesio/log-viewer/zipball/1440ef1c87dadd4f6515d88b6a6b4e3a72156863",
+                "reference": "1440ef1c87dadd4f6515d88b6a6b4e3a72156863",
                 "shasum": ""
             },
             "require": {
@@ -3539,9 +3539,9 @@
             ],
             "support": {
                 "issues": "https://github.com/opcodesio/log-viewer/issues",
-                "source": "https://github.com/opcodesio/log-viewer/tree/v1.6.3"
+                "source": "https://github.com/opcodesio/log-viewer/tree/v1.6.4"
             },
-            "time": "2022-10-20T09:14:05+00:00"
+            "time": "2022-10-26T05:45:55+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -4326,16 +4326,16 @@
         },
         {
             "name": "spatie/browsershot",
-            "version": "3.57.2",
+            "version": "3.57.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/browsershot.git",
-                "reference": "7125719979b7de1257bbf699ff1d3bff3125b228"
+                "reference": "6dbd43cc3e8f35879e1add2fba6801aa97443e12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/browsershot/zipball/7125719979b7de1257bbf699ff1d3bff3125b228",
-                "reference": "7125719979b7de1257bbf699ff1d3bff3125b228",
+                "url": "https://api.github.com/repos/spatie/browsershot/zipball/6dbd43cc3e8f35879e1add2fba6801aa97443e12",
+                "reference": "6dbd43cc3e8f35879e1add2fba6801aa97443e12",
                 "shasum": ""
             },
             "require": {
@@ -4380,7 +4380,7 @@
                 "webpage"
             ],
             "support": {
-                "source": "https://github.com/spatie/browsershot/tree/3.57.2"
+                "source": "https://github.com/spatie/browsershot/tree/3.57.3"
             },
             "funding": [
                 {
@@ -4388,7 +4388,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-08-19T16:43:07+00:00"
+            "time": "2022-10-25T08:30:53+00:00"
         },
         {
             "name": "spatie/crawler",
@@ -5012,16 +5012,16 @@
         },
         {
             "name": "swagger-api/swagger-ui",
-            "version": "v4.15.0",
+            "version": "v4.15.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swagger-api/swagger-ui.git",
-                "reference": "2005a0c996f295dc0d2e3eca06de4de630d993be"
+                "reference": "6ce623329e27e83995bb80797097345a07529785"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/2005a0c996f295dc0d2e3eca06de4de630d993be",
-                "reference": "2005a0c996f295dc0d2e3eca06de4de630d993be",
+                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/6ce623329e27e83995bb80797097345a07529785",
+                "reference": "6ce623329e27e83995bb80797097345a07529785",
                 "shasum": ""
             },
             "type": "library",
@@ -5067,9 +5067,9 @@
             ],
             "support": {
                 "issues": "https://github.com/swagger-api/swagger-ui/issues",
-                "source": "https://github.com/swagger-api/swagger-ui/tree/v4.15.0"
+                "source": "https://github.com/swagger-api/swagger-ui/tree/v4.15.2"
             },
-            "time": "2022-10-20T20:57:58+00:00"
+            "time": "2022-10-26T19:47:11+00:00"
         },
         {
             "name": "symfony/console",
@@ -11231,16 +11231,16 @@
         },
         {
             "name": "spatie/laravel-ignition",
-            "version": "1.5.2",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-ignition.git",
-                "reference": "f2336fc79d99aab5cf27fa4aebe5e9c9ecf3808a"
+                "reference": "2b79cf6ed40946b64ac6713d7d2da8a9d87f612b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/f2336fc79d99aab5cf27fa4aebe5e9c9ecf3808a",
-                "reference": "f2336fc79d99aab5cf27fa4aebe5e9c9ecf3808a",
+                "url": "https://api.github.com/repos/spatie/laravel-ignition/zipball/2b79cf6ed40946b64ac6713d7d2da8a9d87f612b",
+                "reference": "2b79cf6ed40946b64ac6713d7d2da8a9d87f612b",
                 "shasum": ""
             },
             "require": {
@@ -11317,7 +11317,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-10-14T12:24:21+00:00"
+            "time": "2022-10-26T17:39:54+00:00"
         },
         {
             "name": "theseer/tokenizer",
