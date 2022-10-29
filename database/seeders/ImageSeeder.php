@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Example\Image;
 use App\Models\Example\Person;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 use Illuminate\Queue\Failed\NullFailedJobProvider;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -18,10 +19,11 @@ class ImageSeeder extends Seeder
      */
     public function run()
     {
+        $name = 'Resource_Image_Routes.png';
         // Default Demo User
         Image::factory()->create([
             'path' => '',
-            'name' => 'Resource_Image_Routes.png',
+            'name' => $name,
             'extension' => 'png',
             'person_id' => Person::where('username', 'laraveller')->first(),
             'user_id' => User::where('email', 'fdsdwp@protonmail.com')->first(),
@@ -29,5 +31,10 @@ class ImageSeeder extends Seeder
             'update_time' => now(),
             'remove_time' => null,
         ]);
+        $src = database_path('seeders\\') . $name;
+        $dest = storage_path('app\public\\') . $name;
+        if (file_exists($src)) {
+            File::copy($src, $dest);
+        }
     }
 }

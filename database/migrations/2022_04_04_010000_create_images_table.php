@@ -8,7 +8,7 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     * 
+     *
      * uploader can be guest -> nullable
      *
      * @return void
@@ -42,6 +42,16 @@ return new class extends Migration
             $table->timestamp('update_time', 0)->nullable();
             $table->softDeletes('remove_time')->nullable();
         });
+
+        /** Seed Image */
+        $resource_file = storage_path('app\public\Resource_Image_Routes.png');
+        if (file_exists($resource_file)) {
+            if (!unlink($resource_file)) {
+                dd("$resource_file cannot be deleted due to an error");
+            } else {
+                echo ("$resource_file has been deleted");
+            }
+        }
     }
 
     /**
