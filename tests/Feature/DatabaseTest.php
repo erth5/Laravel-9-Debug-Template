@@ -6,16 +6,15 @@ use Tests\TestCase;
 use App\Models\User;
 use App\Models\Example\Person;
 use Database\Seeders\PersonSeeder;
-use App\Http\Controllers\Example\PersonController;
-
 use Illuminate\Support\Facades\DB;
+
+use function PHPUnit\Framework\assertEquals;
+use App\Http\Controllers\Example\PersonController;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
-
-use function PHPUnit\Framework\assertEquals;
 
 class DatabaseTest extends TestCase
 {
@@ -31,7 +30,6 @@ class DatabaseTest extends TestCase
     /** Setzt die Authentifizierung und andere Middlewares außer Kraft */
     // use WithoutMiddleware;
 
-
     /**
      * Teste, dass der Entwicklungs-Standard Eintrag vorhanden ist.
      * @group data
@@ -39,9 +37,10 @@ class DatabaseTest extends TestCase
      */
     public function test_db_default_user_name()
     {
-        if (DB::table('people')->count() == 0)
+        if (DB::table('people')->count() == 0) {
             $this->seed('PersonSeeder');
-        // Funktionsfähig
+            $this->seed('UserSeeder');
+        }
         $defaultUser = User::where('name', "=", 'Max Mustermann')->first();
 
         // Nicht funktionsfähig
@@ -50,7 +49,6 @@ class DatabaseTest extends TestCase
         $this->assertEquals('Max Mustermann', $defaultUser->name);
     }
 
-
     /**
      * Teste, dass der Entwicklungs-Standard Eintrag vorhanden ist.
      * @group data
@@ -58,12 +56,12 @@ class DatabaseTest extends TestCase
      */
     public function test_db_default_person_username()
     {
-        if (DB::table('people')->count() == 0)
+        if (DB::table('people')->count() == 0) {
             $this->seed(PersonSeeder::class);
+        }
         $defaultPerson = Person::where('username', "=", 'laraveller')->first();
         $this->assertEquals("laraveller", $defaultPerson->username);
     }
-
 
     /**
      * Teste, dass der Entwicklungs-Standard Eintrag vorhanden ist.
@@ -73,12 +71,11 @@ class DatabaseTest extends TestCase
     public function test_db_default_person_last_name()
     {
         if (DB::table('people')->count() == 0)
-            $this->seed(PersonSeeder::class);
+            $this->seed('PersonSeeder');
         $this->assertDatabaseHas('people', [
             'last_name' => 'Mustermann',
         ]);
     }
-
 
     /**
      * Teste ob ein Nutzer angelegt werden kann
@@ -101,6 +98,9 @@ class DatabaseTest extends TestCase
      */
     public function test_can_adjust_person()
     {
+        if (DB::table('people')->count() == 0) {
+            $this->seed('PersonSeeder');
+        }
         $adjusting = (new PersonController)->adjust();
         assertEquals(
             'Lord Kennedy',

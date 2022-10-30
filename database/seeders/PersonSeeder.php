@@ -20,6 +20,9 @@ class PersonSeeder extends Seeder
      */
     public function run()
     {
+        /** This Seeder needs */
+        $this->call(LangSeeder::class);
+
         // Default Demo User
         $defautPerson = Person::factory()->create([
             'user_id' => $user = User::factory()->create([

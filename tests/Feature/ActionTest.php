@@ -2,12 +2,13 @@
 
 namespace Tests\Feature;
 
+use Tests\TestCase;
 use App\Actions\CallAdjust;
 use App\Models\Example\Person;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ActionTest extends TestCase
 {
@@ -19,13 +20,15 @@ class ActionTest extends TestCase
      */
     public function test_Action_works()
     {
-        {
-            $adjusting = (new CallAdjust)->handle();
-            $this->assertEquals(
-                'Lord Kennedy',
-                Person::where('username', 'thespasst')
-                    ->first()->user->name
-            );
+        if (DB::table('people')->count() == 0) {
+            $this->seed('PersonSeeder');
         }
+
+        $adjusting = (new CallAdjust)->handle();
+        $this->assertEquals(
+            'Lord Kennedy',
+            Person::where('username', 'thespasst')
+                ->first()->user->name
+        );
     }
 }
