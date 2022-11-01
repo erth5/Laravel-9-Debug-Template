@@ -22,6 +22,10 @@
 
 <https://github.com/phpstan/phpstan>
 
+<https://editor.swagger.io>
+
+<https://support.smartbear.com/swaggerhub/docs/tutorials/openapi-3-tutorial.html>
+
 ## Visual
 
 <https://vitejs.dev/>
@@ -53,10 +57,6 @@
 ## this dependencies are not installed
 
 <https://github.com/CrestApps/laravel-code-generator>
-
-<https://editor.swagger.io>
-
-<https://support.smartbear.com/swaggerhub/docs/tutorials/openapi-3-tutorial.html>
 
 <https://laravel-news.com/bash-aliases>
 
