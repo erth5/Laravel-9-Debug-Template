@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+{{-- The head of an HTML document is the part
+    that is not displayed in the web browser when the page is loaded. --}}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
