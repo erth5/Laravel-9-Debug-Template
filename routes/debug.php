@@ -48,8 +48,13 @@ Route::controller(PermissionAndRoleController::class)->group(function () {
     Route::match(array('GET', 'POST'), '/permission/user', 'user')->name('editUserPermissions');
 });
 
+
 Route::resource('users', UserController::class);
-Route::get('user/test', [UserController::class, 'test']);
+Route::controller(UserController::class)->group(function(){
+    Route::get('user/test', [UserController::class, 'test']);
+    Route::get('/users/export/excel', 'exportExcel')->name('exportExcel');
+    Route::get('/users/export/csv', 'exportCSV')->name('exportCSV');
+});
 
 Route::controller(PersonController::class)->group(function () {
     Route::get('/person/user', 'users');
@@ -81,6 +86,8 @@ Route::controller(LangController::class)->group(function () {
 });
 
 Route::get('/person/adjust', CallAdjust::class)->name('adjust');
+
+
 
 // Route::get('{alias}', 'HomeController@someAction')
 //     ->where('alias', 'alias1|alias1.html|alias1.php|alias4');

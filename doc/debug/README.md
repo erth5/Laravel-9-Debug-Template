@@ -6,7 +6,7 @@ MADE For Europe/German use
 
 ## Introduction
 
-This Template should be used instead of a normal Laravel 9 installation or by copy some needed parts to extend your debug possibilitys and speed up development.
+This Template should be used by copy some needed parts to extend your debug possibilitys and speed up development.
 
 The next steps are choose a starter Template, like jetstream or breeze if you want one and build your prefered software-stack.
 

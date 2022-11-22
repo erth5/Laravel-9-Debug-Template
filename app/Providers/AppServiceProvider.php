@@ -7,6 +7,7 @@ use App\ResourceRegistrar;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\RateLimiter;
