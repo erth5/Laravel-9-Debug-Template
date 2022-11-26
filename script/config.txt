@@ -1,14 +1,6 @@
-# Konfiguriert die Syntax, auf welcher die Dateien mit richtiger Syntax erstellt werden
-
-
-Meeting
-+rules
-
-Creator
--migration
-
-Situation
-
+Meeting +a
+Creator +m
+Situation +rule
 
 creator->meeting
 meeting<-creator

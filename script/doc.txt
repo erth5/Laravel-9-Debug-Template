@@ -1,0 +1,4 @@
+# Erstellt mithilfe der config.txt
+und Anhand der names.txt korrekte Models und dessen Dateien
+Konfiguriert die Syntax,
+auf welcher die Dateien mit richtiger Syntax erstellt werden

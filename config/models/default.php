@@ -2,6 +2,6 @@
 return [
     'User',
     'Person',
-    'images',
-    'langs',
+    'Image',
+    'Lang',
 ];

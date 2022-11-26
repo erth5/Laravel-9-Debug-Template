@@ -1,5 +1,0 @@
-failed_jobs
-password_resets
-telescope_entries
-telescope_entries_tags
-telescope_monitoring
