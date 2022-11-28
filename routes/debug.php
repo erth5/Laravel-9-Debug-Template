@@ -3,6 +3,7 @@
 use App\Actions\CallAdjust;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DebugController;
+use App\Http\Controllers\Helper\TagController;
 use App\Http\Controllers\Example\LangController;
 use App\Http\Controllers\Example\UserController;
 use App\Http\Controllers\Example\ImageController;
@@ -87,7 +88,7 @@ Route::controller(LangController::class)->group(function () {
 
 Route::get('/person/adjust', CallAdjust::class)->name('adjust');
 
-
+Route::resource('tags', TagController::class);
 
 // Route::get('{alias}', 'HomeController@someAction')
 //     ->where('alias', 'alias1|alias1.html|alias1.php|alias4');

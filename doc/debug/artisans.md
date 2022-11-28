@@ -1,6 +1,11 @@
 # Artisans
 
 ```terminal
+php artisan make:model Helper/Tag -a
+php artisan make:controller Helper/TagController --resource
+```
+
+```terminal
 php artisan migrate:fresh --seed
 php artisan db:seed --class=UserSeeder
 php artisan db:seed --class=PersonSeeder
