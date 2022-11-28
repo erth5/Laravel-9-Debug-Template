@@ -22,14 +22,16 @@
 </div>
 
 {{-- use with "withErrors", used lang->validation messages --}}
-@if ($errors->any())
-    {{ $errors->first() }}
-@endif
+@if (isset($errors))
+    @if ($errors->any())
+        {{ $errors->first() }}
+    @endif
 
-@if ($errors->any() > 0)
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li> {{ $error }} </li>
-        @endforeach
-    </ul>
+    @if ($errors->any() > 0)
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li> {{ $error }} </li>
+            @endforeach
+        </ul>
+    @endif
 @endif
