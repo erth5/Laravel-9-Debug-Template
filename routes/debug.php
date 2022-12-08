@@ -49,22 +49,16 @@ Route::controller(PermissionAndRoleController::class)->group(function () {
     Route::match(array('GET', 'POST'), '/permission/user', 'user')->name('editUserPermissions');
 });
 
-
-Route::resource('users', UserController::class);
+Route::resource('users', UserController::class)->only('exportExcel', 'exportCSV');
 Route::controller(UserController::class)->group(function(){
     Route::get('user/test', [UserController::class, 'test']);
-    Route::get('/users/export/excel', 'exportExcel')->name('exportExcel');
-    Route::get('/users/export/csv', 'exportCSV')->name('exportCSV');
 });
 
+Route::resource('people', PersonController::class)->only('index', 'destroy');
 Route::controller(PersonController::class)->group(function () {
-    Route::get('/person/user', 'users');
-    Route::get('/person/person', 'people');
-    Route::get('/person/destroy', 'destroy person');
-    Route::get('/person/name', 'getValuesDirect');
     Route::get('/person/test', 'test');
-    Route::get('/person/role', 'role');
 });
+Route::get('/person/adjust', CallAdjust::class)->name('adjust');
 
 Route::controller(ImageController::class)->group(function () {
     Route::get('/images', 'index')->name('image');
@@ -86,9 +80,7 @@ Route::controller(LangController::class)->group(function () {
     Route::get('/lang/change', 'change')->name('langChange');
 });
 
-Route::get('/person/adjust', CallAdjust::class)->name('adjust');
-
-Route::resource('tags', TagController::class);
+Route::resource('tags', TagController::class)->only('list');
 
 // Route::get('{alias}', 'HomeController@someAction')
 //     ->where('alias', 'alias1|alias1.html|alias1.php|alias4');

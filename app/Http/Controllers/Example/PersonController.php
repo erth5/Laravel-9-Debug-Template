@@ -12,27 +12,11 @@ use App\Http\Controllers\Controller;
 class PersonController extends Controller
 {
     /**
-     * Display all users and his people
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function indexUser()
-    {
-        // performance: 2 queries->bad
-        if (User::first() == null)
-            $users = null;
-        else {
-            $users = User::all();
-            return view('debug.person', compact('users'));
-        }
-    }
-
-    /**
      * Display all people and his relations to users
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexPerson()
+    public function index()
     {
         // performance: 2 queries->bad
         if (Person::count() == 0)
@@ -40,16 +24,6 @@ class PersonController extends Controller
         else
             $people = Person::all();
         return view('debug.user', compact('people'));
-    }
-
-    /**
-     * Speichert eine vorhandene oder neue Person ab
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Person $person, Request $request)
-    {
-        //
     }
 
     /**
@@ -68,13 +42,6 @@ class PersonController extends Controller
         }
     }
 
-    public function getValuesDirect()
-    {
-        // $names =  User::get(array('name'));
-        $names =  User::select('name')->get();
-        dd($names);
-    }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -89,14 +56,13 @@ class PersonController extends Controller
         return $view;
     }
 
-    public function role()
-    {
-        $users = User::orderBy('name')->with('roles')->get();
-        return view('debug.role', compact('users'));
-    }
-
     public function test($id = 11)
     {
+        /** works */
+        // $names =  User::get(array('name'));
+        // $names =  User::select('name')->get();
+        // dd($names);
+
         /** works */
         // $person = Person::findOrFail($id);
         // if ($person->user_id == null)
@@ -142,8 +108,8 @@ class PersonController extends Controller
         // dd($test);
 
         /** need implementet design */
-        $test = Person::peopleAdded();
-        return view('debug.person', compact('test'));
+        // $test = Person::peopleAdded();
+        // return view('debug.person', compact('test'));
     }
 }
 
