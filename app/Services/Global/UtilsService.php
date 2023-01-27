@@ -2,8 +2,9 @@
 
 namespace App\Services\Global;
 
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 
 /** Vorteile:
@@ -44,13 +45,22 @@ class UtilsService
      * @param checkboxTableColumnNames array Array von attribut-Namen (string) die checkbox-werte (boolean-werte) repräsentieren, die aus dem Request, die im Objekt gefüllt werden sollen
      * @param req request request
      * */
-    public function fillObjectFromRequest($object, $TableColumnNames = null,  $checkboxTableColumnNames = null, Request $req)
+    public function fillObjectFromRequest($object, Request $req, $withNullValues)
     {
+        dd(get_class($object));
+        $databaseName = strtolower(Str::plural(get_class($object)), 2);
+        $tableColumnNames = $this->getDbColumnsWithoutBoolean($databaseName);
+        $checkboxTableColumnNames = $this->getDbBooleanColumns($databaseName);
+
         if (isset($TableColumnNames)) {
             foreach ($TableColumnNames as $columnName) {
                 if ($req->has($columnName)) {
-                    Log::info("columnName; columnValue:", [$columnName, $req->{$columnName}]);
-                    $object->{$columnName} = $req->{$columnName};
+                    if ($req->get($columnName) != null || $withNullValues) {
+                        if ($object->{$columnName} != $req->{$columnName}) {
+                            logger("Updated: oldColumnValue; columnName; newColumnValue: ", [$object->{$columnName}, $columnName, $req->{$columnName}]);
+                            $object->{$columnName} = $req->{$columnName};
+                        }
+                    }
                 }
             }
         }
@@ -61,5 +71,49 @@ class UtilsService
             }
         }
         return $object;
+    }
+
+    /** recursiv
+     * @param [array] Array mit Ihalt
+     * @param [obeject] $object leeres Eloquent Modell
+     * @return object gefülltes Modell
+     */
+    public function fillObjectFromArray($object, array $array)
+    {
+        $databaseName = strtolower(Str::plural(get_class($object)), 2);
+        $tableColumnNames = $this->getDbColumnsWithoutBoolean($databaseName);
+
+        foreach ($array as $value) {
+            if (is_array($value)) {
+                $object = $this->fillObjectFromArray($object, $tableColumnNames, $value);
+            }
+            if (is_string($value)) {
+                $object->{$tableColumnNames} = $value;
+            }
+            // if (is_object())
+        }
+        return $object;
+    }
+
+    private function getDbColumnsWithoutBoolean(string $database)
+    {
+        $tableColumns = array();
+        $contents = Schema::getColumnListing($database);
+        foreach ($contents as $content) {
+            if (Schema::getColumnType($database, $content) != 'boolean')
+                $tableColumns[] = $content;
+        }
+        return $tableColumns;
+    }
+
+    private function getDbBooleanColumns($database)
+    {
+        $tableColumns = array();
+        $booleans = Schema::getColumnListing($database);
+        foreach ($booleans as $maybeBool) {
+            if (Schema::getColumnType($database, $maybeBool) == 'boolean')
+                $tableColumns[] = $maybeBool;
+        }
+        return $tableColumns;
     }
 }

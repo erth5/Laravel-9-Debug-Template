@@ -1,20 +1,23 @@
-# description
+# Description
 
 ## Relationship
 
+```php
 $user->load('projects');
+```
 
-## Ressource
+## Resource
 
-    public function index(){}
-    public function store(Request $request){}
-    public function create(){}
-    public function show(){}
-    public function update(Request $request){}
-    public function destroy(Request $request){}
-    public function edit(Request $request){}
+```php
+public function index(){}
+public function store(Request $request){}
+public function create(){}
+public function show(){}
+public function update(Request $request){}
+public function destroy(Request $request){}
+public function edit(Request $request){}
 
-/*Ressource Routes*/
+Route::resource('items', ItemController::class);
 Route::controller(ItemController::class)->group(function () {
     Route::get('items', 'index')->name('items.index');
     Route::post('items', 'store')->name('items.store');
@@ -24,9 +27,9 @@ Route::controller(ItemController::class)->group(function () {
     Route::delete('items/{item}', 'destroy')->name('items.destroy');
     Route::get('items/{item}/edit', 'edit')->name('items.edit');
 });
-Route::resource('items', ItemController::class);
+```
 
-## auth
+## Auth
 
 ```php
 /* Current Login User Details */

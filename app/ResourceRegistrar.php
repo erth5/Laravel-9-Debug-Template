@@ -15,8 +15,10 @@ class ResourceRegistrar extends BaseResourceRegistrar
         'update',
         'destroy',
         'list',
-        'exportExcel',
+        'importCSV',
+        'importExcel',
         'exportCSV',
+        'exportExcel',
     ];
 
     /**
@@ -36,7 +38,7 @@ class ResourceRegistrar extends BaseResourceRegistrar
     }
 
     /**
-     * Undocumented function
+     * Add exports and imports to the Ressources
      *
      * @param [string] $name
      * @param [string] $base
@@ -44,16 +46,36 @@ class ResourceRegistrar extends BaseResourceRegistrar
      * @param [string] $options
      * @return void
      */
-    public function addResourceExportExcel($name, $base, $controller, $options)
+    public function addResourcePing($name, $base, $controller, $options)
     {
-        $uri = $this->getResourceUri($name) . '/export/excel';
-        $action = $this->getResourceAction($name, $controller, 'exportExcel', $options);
+        $uri = $this->getResourceUri($name) . '/ping';
+        $action = $this->getResourceAction($name, $controller, 'ping', $options);
         return $this->router->get($uri, $action);
     }
+
+    public function addResourceImportCSV($name, $base, $controller, $options)
+    {
+        $uri = $this->getResourceUri($name) . '/import/csv';
+        $action = $this->getResourceAction($name, $controller, 'importCSV', $options);
+        return $this->router->post($uri, $action);
+    }
+    public function addResourceImportExcel($name, $base, $controller, $options)
+    {
+        $uri = $this->getResourceUri($name) . '/import/excel';
+        $action = $this->getResourceAction($name, $controller, 'importExcel', $options);
+        return $this->router->post($uri, $action);
+    }
+
     public function addResourceExportCSV($name, $base, $controller, $options)
     {
         $uri = $this->getResourceUri($name) . '/export/csv';
         $action = $this->getResourceAction($name, $controller, 'exportCSV', $options);
+        return $this->router->get($uri, $action);
+    }
+    public function addResourceExportExcel($name, $base, $controller, $options)
+    {
+        $uri = $this->getResourceUri($name) . '/export/excel';
+        $action = $this->getResourceAction($name, $controller, 'exportExcel', $options);
         return $this->router->get($uri, $action);
     }
 }
